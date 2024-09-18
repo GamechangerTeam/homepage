@@ -166,6 +166,9 @@ const partners_swiper = new Swiper("#partners_swiper", {
       spaceBetween: 0,
       slidesPerView: 5,
       centeredSlides: false,
+      grid: {
+        rows: 1,
+      },
     },
   },
   pagination: {
@@ -185,11 +188,16 @@ const trustUs = new Swiper("#trustUs", {
   breakpoints: {
     769: {
       slidesPerView: 4,
-  
+      grid: {
+        rows: 2,
+      },
     },
 
     526: {
       slidesPerView: 3,
+      grid: {
+        rows: 2,
+      },
     },
   },
   pagination: {
@@ -232,3 +240,21 @@ const sendForm = async (name, number, comments) => {
     return false;
   }
 };
+
+
+const play_sound = document.querySelector("button.case_with_review")
+
+play_sound.addEventListener("click", function () {
+  let audioPlayer = document.getElementById("audioPlayer");
+  let playBtn = play_sound.querySelector(".play_button")
+  let pauseBtn = play_sound.querySelector(".pause_button")
+  if (audioPlayer.paused) {
+    audioPlayer.play();
+    playBtn.style.opacity = 0
+    pauseBtn.style.opacity = 1
+  } else {
+    audioPlayer.pause();
+    playBtn.style.opacity = 1
+    pauseBtn.style.opacity = 0
+  }
+});

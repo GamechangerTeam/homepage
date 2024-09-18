@@ -437,7 +437,7 @@ p {
     padding: 50px 20px;
   }
   @include mobile() {
-    padding: 50px 20px;
+    padding: 50px 10px;
   }
 }
 
@@ -634,16 +634,6 @@ p {
   background-color: #eaeaea;
   border-radius: 25px;
 
-  @include pc {
-    background-color: black;
-    margin: 0;
-    padding: 0 10px;
-    .container {
-      background-color: #eaeaea;
-      border-radius: 25px;
-    }
-  }
-
   h2 {
     margin-bottom: 20px;
   }
@@ -703,7 +693,6 @@ p {
       svg {
         width: 24px;
         height: 24px;
-
       }
     }
   }
@@ -712,6 +701,15 @@ p {
     @include greenBtn();
     margin: 0 auto;
     padding: 24px 48px;
+  }
+  @include pc {
+    background-color: black;
+    margin: 0;
+    padding: 0 10px;
+    .container {
+      background-color: #eaeaea;
+      border-radius: 25px;
+    }
   }
 }
 
@@ -827,14 +825,11 @@ p {
       grid-area: 2/1;
       margin: 0 auto;
     }
-    h3,
-    p {
-      text-align: left;
-    }
     p {
       width: 100%;
       position: relative;
       z-index: 1;
+      text-align: left;
       backdrop-filter: blur(20px);
     }
 
@@ -848,6 +843,7 @@ p {
     }
 
     h3 {
+      text-align: left;
       position: relative;
       z-index: 1;
       backdrop-filter: blur(20px);
@@ -869,11 +865,11 @@ p {
     }
 
     h3 {
-      font-size: 16px;
-      margin-bottom: 20px;
+      font-size: 18px;
+      margin-bottom: 30px;
     }
     p {
-      font-size: 16px;
+      font-size: 18px;
     }
 
     .smaller_text {
@@ -1011,9 +1007,16 @@ p {
     flex-direction: column;
     align-items: center;
     .container {
-      margin: auto 0;
       width: 100%;
       height: fit-content;
+      padding: 50px 0;
+    }
+    h2,
+    .subtitle {
+      padding: 0 10px;
+    }
+    .swiper {
+      padding: 0 10px;
     }
     .swiper-wrapper {
       display: flex;
@@ -1139,6 +1142,12 @@ p {
   position: relative;
   z-index: 1;
 
+  .container {
+    @include mobile() {
+      padding: 50px 10px;
+    }
+  }
+
   ul {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1158,6 +1167,11 @@ p {
     margin-bottom: 20px;
   }
 
+  li{
+    transition: .3s;
+    border-radius: 20px
+  }
+
   label {
     @include shadow_box();
     border-radius: 16px;
@@ -1170,11 +1184,14 @@ p {
     height: 100%;
     gap: 10px;
     transition: 0.3s;
-
     @include mobile() {
       padding: 16px 12px;
       grid-template: auto 20px / 1fr;
     }
+  }
+
+  li:has(.checkbox-input:checked) {
+    box-shadow: (10px 10px 10px rgba(128, 128, 128, 0.2));
   }
 
   .checkbox-input {
@@ -1184,9 +1201,9 @@ p {
         transform: translate(-50%, -50%) scale(1);
       }
     }
-    &:checked + label {
-      filter: drop-shadow(10px 10px 10px rgba(128, 128, 128, 0.2));
-    }
+    // &:checked:has(li) {
+    //   filter: drop-shadow(10px 10px 10px rgba(128, 128, 128, 0.2));
+    // }
   }
 
   .checkbox {
@@ -1231,7 +1248,7 @@ p {
       width: 100%;
       height: 100%;
       display: flex;
-      flex-direction: column;
+      flex-direction: column-reverse;
       justify-content: center;
       // align-items: center;
       padding: 14px 20px;
@@ -1240,22 +1257,24 @@ p {
     }
     img {
       width: 60px;
+      margin-left: auto;
     }
 
     @include tablet() {
       grid-template-columns: repeat(2, 1fr);
+      img {
+        width: 50px;
+      }
     }
 
     @include mobile() {
       gap: 14px;
       a {
-        flex-direction: column;
-        align-items: flex-start;
         padding: 10px;
         font-size: 14px;
       }
       img {
-        width: 50px;
+        width: 32px;
       }
     }
   }
@@ -1297,7 +1316,7 @@ p {
         height: 450px;
       }
       @include mobile() {
-        height: 550px;
+        height: 500px;
       }
     }
   }
@@ -1326,6 +1345,21 @@ p {
         display: grid;
         place-content: center;
       }
+
+      button {
+        // position: relative;  
+        svg {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        
+        }
+
+        .pause_button {
+          opacity: 0;
+        }
+      }
     }
 
     .gradient-border {
@@ -1337,17 +1371,22 @@ p {
 
     h3 {
       color: #fff;
-      opacity: 0.3;
       text-transform: uppercase;
       font-size: 16px;
     }
 
     p {
       color: #fff;
-      opacity: 0.1;
+      opacity: 0.7;
       @include tablet() {
         font-size: 14px;
       }
+    }
+
+    button {
+      background-color: transparent;
+      border: 0;
+      outline: none;
     }
 
     span {
@@ -1366,6 +1405,7 @@ p {
       position: relative;
       z-index: 1;
       width: 80%;
+      border-radius: 50%;
     }
   }
 
@@ -1913,23 +1953,23 @@ p {
   }
 }
 
-html.lenis,
-html.lenis body {
-  height: auto;
-}
+// html.lenis,
+// html.lenis body {
+//   height: auto;
+// }
 
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
+// .lenis.lenis-smooth {
+//   scroll-behavior: auto !important;
+// }
 
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
+// .lenis.lenis-smooth [data-lenis-prevent] {
+//   overscroll-behavior: contain;
+// }
 
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
+// .lenis.lenis-stopped {
+//   overflow: hidden;
+// }
 
-.lenis.lenis-smooth iframe {
-  pointer-events: none;
-}
+// .lenis.lenis-smooth iframe {
+//   pointer-events: none;
+// }
