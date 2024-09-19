@@ -48,15 +48,12 @@ window.addEventListener("scroll", () => {
   if (partnerPosition <= 0 && window.innerWidth > 768) {
     comfort.classList.remove("hidden");
     free.classList.add("hidden");
-
   } else if (trustPosition <= 0 && window.innerWidth > 768) {
     free.classList.remove("hidden");
     comfort.classList.add("hidden");
-    
   } else {
     comfort.classList.add("hidden");
     free.classList.add("hidden");
-
   }
 });
 
@@ -101,14 +98,16 @@ const submit = document.querySelector(".submit-btn");
 submit.addEventListener("click", async (e) => {
   e.preventDefault();
 
-
   const name = document.getElementById("name_inp").value;
+  console.log("🚀 ~ submit.addEventListener ~ name:", name);
   const number = document.getElementById("num_inp").value;
   const comments = document.getElementById("comments").value;
   if (name && number) {
+    console.log("🚀 ~ submit.addEventListener ~ name:", name);
     submit.querySelector("svg").style.opacity = 1;
     submit.querySelector("span").innerText = "";
     const res = await sendForm(name, number, comments);
+    console.log("🚀 ~ submit.addEventListener ~ name:", name);
     if (res) {
       submit.disabled = true;
       submit.querySelector("svg").style.opacity = 0;
@@ -138,6 +137,7 @@ openLeftSection.forEach((btn) => {
       btn.disabled = false;
     }, 500);
     const dataName = btn.getAttribute("data-name");
+    console.log("🚀 ~ btn.addEventListener ~ name:", name);
     document.body.style.overflow = "hidden";
     // lenis.stop()
     if (dataName !== "casesAll") {
@@ -211,6 +211,7 @@ const trustUs = new Swiper("#trustUs", {
 });
 
 const sendForm = async (name, number, comments) => {
+  console.log("🚀 ~ sendForm ~ name:", name);
   const data = {
     fields: {
       TITLE: `${name} / ${number}`,
@@ -241,20 +242,42 @@ const sendForm = async (name, number, comments) => {
   }
 };
 
+const play_sound = document.querySelectorAll("button.case_with_review");
+const audio = [
+  {
+    name: "marten",
+    src: "https://dl.dropbox.com/scl/fi/uo6l39zoas1dpemyu2kyt/martinstal.ogg?rlkey=fgnfqellg787dvuhsylbrwm2a&st=mv2r1qo6&dl=0",
+  },
+  {
+    name: "aibolit",
+    src: "https://dl.dropbox.com/scl/fi/0v16dzup0ri5nu05b62sk/Aibolit.ogg?rlkey=hdcuvg2ncotid53nd3yxpssnz&st=r8fgvsyx&dl=0",
+  },
+];
 
-const play_sound = document.querySelector("button.case_with_review")
-
-play_sound.addEventListener("click", function () {
-  let audioPlayer = document.getElementById("audioPlayer");
-  let playBtn = play_sound.querySelector(".play_button")
-  let pauseBtn = play_sound.querySelector(".pause_button")
-  if (audioPlayer.paused) {
-    audioPlayer.play();
-    playBtn.style.opacity = 0
-    pauseBtn.style.opacity = 1
-  } else {
-    audioPlayer.pause();
-    playBtn.style.opacity = 1
-    pauseBtn.style.opacity = 0
-  }
+play_sound.forEach((btn) => {
+  btn.addEventListener("click", function () {
+    let name = btn.getAttribute("data-name");
+    const audioPlayers = document.querySelectorAll("audio");
+    const thisPLayer = Array.from(audioPlayers).find(
+      (player) => player.getAttribute("data-name") === name
+    );
+    let playBtn = btn.querySelector(".play_button");
+    let pauseBtn = btn.querySelector(".pause_button");
+    if (thisPLayer.paused) {
+      audioPlayers.forEach((x) => {
+        x.pause();
+        play_sound.forEach((btn) => {
+          btn.querySelector(".play_button").style.opacity = 1;
+          btn.querySelector(".pause_button").style.opacity = 0;
+        });
+      });
+      thisPLayer.play();
+      playBtn.style.opacity = 0;
+      pauseBtn.style.opacity = 1;
+    } else {
+      thisPLayer.pause();
+      playBtn.style.opacity = 1;
+      pauseBtn.style.opacity = 0;
+    }
+  });
 });

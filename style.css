@@ -1429,8 +1429,7 @@ p {
 .cases-block__card img {
   position: relative;
   z-index: 1;
-  width: 80%;
-  border-radius: 50%;
+  width: 70%;
 }
 .cases-block .trustUs__navigation {
   display: flex;
@@ -1951,15 +1950,27 @@ p {
   display: grid;
   place-items: center;
   z-index: 1;
+  background-color: transparent;
+  border: none;
+  outline: none;
 }
-.case_with_review svg {
+.case_with_review svg:nth-child(1) {
   opacity: 0;
+  transition: 0.3s;
   visibility: hidden;
+}
+.case_with_review svg:nth-child(2) {
+  transition: 0.3s;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
 }
 .case_with_review:hover {
   background-color: #050505;
 }
-.case_with_review:hover svg {
+.case_with_review:hover svg:nth-child(1) {
   opacity: 1;
   visibility: visible;
 }
@@ -1988,15 +1999,15 @@ p {
 .cases_all.active {
   display: block !important;
 }
-.cases_all.active button {
+.cases_all.active .hide_left_section {
   left: calc(50% - 580px);
 }
 @media (max-width: 1200px) {
-  .cases_all.active button {
+  .cases_all.active .hide_left_section {
     left: 20px;
   }
 }
-.cases_all button {
+.cases_all .hide_left_section {
   background-color: #050505;
   border: 1px solid #292929;
   border-radius: 10px;
@@ -2017,19 +2028,19 @@ p {
   transition: 0.5s ease-out;
   color: white;
 }
-.cases_all button:hover {
+.cases_all .hide_left_section:hover {
   background-color: white;
   color: black !important;
 }
-.cases_all button:active {
+.cases_all .hide_left_section:active {
   scale: 0.95;
 }
 @media (max-width: 525px) {
-  .cases_all button {
+  .cases_all .hide_left_section {
     height: 60px !important;
   }
 }
-.cases_all button svg {
+.cases_all .hide_left_section svg {
   width: 20px;
   height: 20px;
 }

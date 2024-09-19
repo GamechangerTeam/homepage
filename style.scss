@@ -1404,8 +1404,8 @@ p {
     img {
       position: relative;
       z-index: 1;
-      width: 80%;
-      border-radius: 50%;
+      width: 70%;
+      // border-radius: 50%;
     }
   }
 
@@ -1792,14 +1792,28 @@ p {
   display: grid;
   place-items: center;
   z-index: 1;
+  background-color: transparent;
+  border: none;
+  outline: none;
 
-  svg {
+  svg:nth-child(1) {
     opacity: 0;
+    transition: .3s;
     visibility: hidden;
   }
+
+  svg:nth-child(2) {
+    transition: .3s;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+  }
+
   &:hover {
     background-color: $black;
-    svg {
+    svg:nth-child(1) {
       opacity: 1;
       visibility: visible;
     }
@@ -1833,7 +1847,7 @@ p {
 
   &.active {
     display: block !important;
-    button {
+    .hide_left_section {
       left: calc(50% - 580px);
       @include pc {
         left: 20px;
@@ -1841,7 +1855,7 @@ p {
     }
   }
 
-  button {
+  .hide_left_section {
     @include grayBtn();
     width: fit-content;
     position: fixed;
@@ -1860,7 +1874,7 @@ p {
     flex-direction: column;
     gap: 40px;
     padding: 0 !important;
-  }
+  } 
 
   li {
     display: flex;
