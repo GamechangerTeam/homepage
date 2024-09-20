@@ -21,16 +21,16 @@
   <body>
     <main>
       <div class="section homepage">
-        <div class="homepage__background-text">
-          <span>GAMECHANGER</span>
-        </div>
         <div class="container">
           <div class="homepage__header">
-            <div class="homepage__logo-wrapper">
+            <div class="homepage-background-text">
+              <span>GAMECHANGER</span>
+            </div>
+            <div class="homepage__header-logo-wrapper">
               <img
                 src="https://static.tildacdn.com/tild3863-6637-4737-a136-333237346336/Logo_-_preloader.png"
                 alt="preloader"
-                class="homepage__preloader"
+                class="homepage__header-preloader"
                 id="logo_preloader"
               />
               <video
@@ -38,7 +38,7 @@
                 muted
                 playsinline
                 loop
-                class="homepage__video"
+                class="homepage__header-video"
                 id="video"
               >
                 <source
@@ -47,55 +47,339 @@
                 />
               </video>
             </div>
-            <h1>Внедрение CRM Битрикс24 для бизнеса</h1>
-            <p class="subtitle">
-              Мы не просто создаем системы. Мы достигаем результатов
-            </p>
-          </div>
-          <button class="open_left_section">
-            Получить консультацию
-            <svg
-              width="24"
-              height="25"
-              viewBox="0 0 24 25"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                opacity="0.958"
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M11.5078 1.65038C14.2501 1.59547 16.3673 2.70485 17.8594 4.9785C18.4179 5.93532 18.7304 6.96657 18.7969 8.07225C18.9506 8.22596 19.1069 8.38224 19.2656 8.541C19.3254 8.64493 19.3723 8.75433 19.4063 8.86913C19.4375 9.82224 19.4375 10.7754 19.4063 11.7285C19.1629 12.4307 18.6707 12.7042 17.9297 12.5488C17.8305 12.5227 17.7368 12.4836 17.6484 12.4316C16.7528 13.0191 15.7684 13.355 14.6953 13.4394C14.5448 13.4957 14.4198 13.5895 14.3203 13.7207C14.2165 13.7696 14.1071 13.8008 13.9922 13.8144C13.6641 13.8457 13.3359 13.8457 13.0078 13.8144C12.4094 13.6567 12.2297 13.2895 12.4688 12.7129C12.5596 12.5907 12.6768 12.5048 12.8203 12.4551C13.2735 12.4238 13.7265 12.4238 14.1797 12.4551C14.3138 12.4987 14.4232 12.5768 14.5078 12.6894C15.4746 12.647 16.3652 12.3658 17.1797 11.8457C17.1456 11.7801 17.1222 11.7098 17.1094 11.6348C17.0781 10.7597 17.0781 9.88477 17.1094 9.00975C17.1698 8.66077 17.3495 8.39518 17.6484 8.21288C17.6105 6.64472 17.0168 5.32439 15.8672 4.25194C14.0118 2.69271 11.9493 2.34896 9.67969 3.22069C7.78669 4.13009 6.65386 5.62229 6.28125 7.69725C6.24258 7.87121 6.25036 8.0431 6.30469 8.21288C6.60361 8.39518 6.78333 8.66077 6.84375 9.00975C6.87502 9.88477 6.87502 10.7597 6.84375 11.6348C6.54952 12.5043 5.96358 12.7778 5.08594 12.4551C4.79808 12.2923 4.6184 12.0502 4.54688 11.7285C4.51562 10.7754 4.51562 9.82224 4.54688 8.86913C4.58084 8.75433 4.62772 8.64493 4.6875 8.541C4.84627 8.38224 5.00255 8.22596 5.15625 8.07225C5.47434 5.02069 7.07592 2.98162 9.96094 1.95507C10.4753 1.81311 10.9909 1.71155 11.5078 1.65038Z"
-                fill="white"
-              />
-              <path
-                opacity="0.99"
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M11.8805 3.80469C14.2312 3.80513 15.7234 4.93013 16.3571 7.17969C16.6842 8.81066 16.4811 10.3731 15.7477 11.8672C15.4579 11.9956 15.1532 12.0737 14.8337 12.1016C14.5553 11.9646 14.2584 11.8787 13.943 11.8438C13.5349 11.8085 13.1286 11.8241 12.7243 11.8906C11.9471 12.1872 11.658 12.7419 11.8571 13.5547C12.0594 14.0229 12.4109 14.2963 12.9118 14.375C13.3509 14.4102 13.7884 14.4024 14.2243 14.3516C14.0855 14.8363 14.2106 15.2348 14.5993 15.5469C15.1569 15.8881 15.7507 16.1537 16.3805 16.3438C17.3456 16.7479 18.2518 17.2479 19.0993 17.8438C20.2278 18.7237 20.595 19.8565 20.2009 21.2422C19.9861 21.6486 19.6814 21.9689 19.2868 22.2031C18.7276 22.5146 18.1338 22.7333 17.5055 22.8594C15.6698 23.1943 13.8183 23.3427 11.9509 23.3047C10.1295 23.3481 8.32484 23.1997 6.53679 22.8594C5.85551 22.7105 5.21487 22.4605 4.61491 22.1094C3.58708 21.3079 3.32926 20.3001 3.84148 19.0859C4.05968 18.6799 4.34875 18.3283 4.70866 18.0312C6.0978 17.024 7.5978 16.2115 9.20866 15.5938C9.78396 15.2428 9.94802 14.7507 9.70085 14.1172C9.05951 13.3037 8.51266 12.4287 8.06023 11.4922C7.37004 9.8255 7.30755 8.138 7.87273 6.42969C8.66819 4.73672 10.0041 3.86172 11.8805 3.80469Z"
-                fill="white"
-              />
-            </svg>
-          </button>
-          <div class="homepage__statistics">
-            <div class="homepage__statistics--left">
-              <span> более <span class="big_text">1200</span> </span>
-              <span class="gray_text"
-                >пользователей работают <br />
-                на наших системах</span
-              >
+            <div>
+              <h1>Внедрение CRM Битрикс24 для бизнеса</h1>
+              <p>Мы не просто создаём системы. Мы достигаем результатов</p>
             </div>
-            <span class="line"></span>
-            <div class="homepage__statistics--right">
-              <span> <span class="big_text">100%</span> кейсов</span>
-              <span class="gray_text"
-                >завершены успешно для <br />
-                наших клиентов</span
+            <div class="homepage__header-btns">
+              <button
+                class="homepage__header-btns--free-consultation open_left_section"
+                data-name="consultation"
               >
+                Бесплатная консультация
+                <svg
+                  width="24"
+                  height="25"
+                  viewBox="0 0 24 25"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    opacity="0.958"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M11.5078 1.65038C14.2501 1.59547 16.3673 2.70485 17.8594 4.9785C18.4179 5.93532 18.7304 6.96657 18.7969 8.07225C18.9506 8.22596 19.1069 8.38224 19.2656 8.541C19.3254 8.64493 19.3723 8.75433 19.4063 8.86913C19.4375 9.82224 19.4375 10.7754 19.4063 11.7285C19.1629 12.4307 18.6707 12.7042 17.9297 12.5488C17.8305 12.5227 17.7368 12.4836 17.6484 12.4316C16.7528 13.0191 15.7684 13.355 14.6953 13.4394C14.5448 13.4957 14.4198 13.5895 14.3203 13.7207C14.2165 13.7696 14.1071 13.8008 13.9922 13.8144C13.6641 13.8457 13.3359 13.8457 13.0078 13.8144C12.4094 13.6567 12.2297 13.2895 12.4688 12.7129C12.5596 12.5907 12.6768 12.5048 12.8203 12.4551C13.2735 12.4238 13.7265 12.4238 14.1797 12.4551C14.3138 12.4987 14.4232 12.5768 14.5078 12.6894C15.4746 12.647 16.3652 12.3658 17.1797 11.8457C17.1456 11.7801 17.1222 11.7098 17.1094 11.6348C17.0781 10.7597 17.0781 9.88477 17.1094 9.00975C17.1698 8.66077 17.3495 8.39518 17.6484 8.21288C17.6105 6.64472 17.0168 5.32439 15.8672 4.25194C14.0118 2.69271 11.9493 2.34896 9.67969 3.22069C7.78669 4.13009 6.65386 5.62229 6.28125 7.69725C6.24258 7.87121 6.25036 8.0431 6.30469 8.21288C6.60361 8.39518 6.78333 8.66077 6.84375 9.00975C6.87502 9.88477 6.87502 10.7597 6.84375 11.6348C6.54952 12.5043 5.96358 12.7778 5.08594 12.4551C4.79808 12.2923 4.6184 12.0502 4.54688 11.7285C4.51562 10.7754 4.51562 9.82224 4.54688 8.86913C4.58084 8.75433 4.62772 8.64493 4.6875 8.541C4.84627 8.38224 5.00255 8.22596 5.15625 8.07225C5.47434 5.02069 7.07592 2.98162 9.96094 1.95507C10.4753 1.81311 10.9909 1.71155 11.5078 1.65038Z"
+                    fill="white"
+                  ></path>
+                  <path
+                    opacity="0.99"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M11.8805 3.80469C14.2312 3.80513 15.7234 4.93013 16.3571 7.17969C16.6842 8.81066 16.4811 10.3731 15.7477 11.8672C15.4579 11.9956 15.1532 12.0737 14.8337 12.1016C14.5553 11.9646 14.2584 11.8787 13.943 11.8438C13.5349 11.8085 13.1286 11.8241 12.7243 11.8906C11.9471 12.1872 11.658 12.7419 11.8571 13.5547C12.0594 14.0229 12.4109 14.2963 12.9118 14.375C13.3509 14.4102 13.7884 14.4024 14.2243 14.3516C14.0855 14.8363 14.2106 15.2348 14.5993 15.5469C15.1569 15.8881 15.7507 16.1537 16.3805 16.3438C17.3456 16.7479 18.2518 17.2479 19.0993 17.8438C20.2278 18.7237 20.595 19.8565 20.2009 21.2422C19.9861 21.6486 19.6814 21.9689 19.2868 22.2031C18.7276 22.5146 18.1338 22.7333 17.5055 22.8594C15.6698 23.1943 13.8183 23.3427 11.9509 23.3047C10.1295 23.3481 8.32484 23.1997 6.53679 22.8594C5.85551 22.7105 5.21487 22.4605 4.61491 22.1094C3.58708 21.3079 3.32926 20.3001 3.84148 19.0859C4.05968 18.6799 4.34875 18.3283 4.70866 18.0312C6.0978 17.024 7.5978 16.2115 9.20866 15.5938C9.78396 15.2428 9.94802 14.7507 9.70085 14.1172C9.05951 13.3037 8.51266 12.4287 8.06023 11.4922C7.37004 9.8255 7.30755 8.138 7.87273 6.42969C8.66819 4.73672 10.0041 3.86172 11.8805 3.80469Z"
+                    fill="white"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="homepage__main">
+            <div class="gradient-container">
+              <a
+                href="/carservice"
+                class="toMainPage glow-on-hover"
+                data-id="7"
+              >
+                <img
+                  src="https://static.tildacdn.com/tild6634-6236-4365-a663-613636333439/autoservice.svg"
+                  alt="автосервис иконка svg"
+                />
+                Автосервис
+              </a>
+              <span class="gradient-border"></span>
+            </div>
+            <div class="gradient-container">
+              <a href="/lease" class="toMainPage glow-on-hover" data-id="9">
+                <img
+                  src="https://static.tildacdn.com/tild6533-3331-4363-b639-633035663535/arenda.svg"
+                  alt="аренда иконка svg"
+                />
+                Аренда
+              </a>
+              <span class="gradient-border"></span>
+            </div>
+            <div class="gradient-container">
+              <a href="/gr" class="toMainPage glow-on-hover" data-id="10">
+                <img
+                  src="https://static.tildacdn.com/tild3035-6237-4335-a638-623831386437/arenda.png"
+                  alt="HR иконка svg"
+                />
+                HR
+              </a>
+              <span class="gradient-border"></span>
+            </div>
+            <div class="gradient-container">
+              <a
+                href="/construction"
+                class="toMainPage glow-on-hover"
+                data-id="2"
+              >
+                <img
+                  src="https://static.tildacdn.com/tild6138-6431-4664-b839-626166383437/building.svg"
+                  alt="строительство иконка svg"
+                />
+                Строительство
+              </a>
+              <div class="gradient-border"></div>
+            </div>
+            <div class="gradient-container">
+              <a href="/education" class="toMainPage glow-on-hover" data-id="6">
+                <img
+                  src="https://static.tildacdn.com/tild3462-3532-4032-b030-633065303336/education.svg"
+                  alt="образование иконка svg"
+                />
+                Образование
+              </a>
+              <span class="gradient-border"></span>
+            </div>
+            <div class="gradient-container">
+              <a
+                href="/immoavables"
+                class="toMainPage glow-on-hover"
+                data-id="5"
+              >
+                <img
+                  src="https://static.tildacdn.com/tild6465-3265-4133-a438-633165303231/selling_house.svg"
+                  alt="продажа недвижимости иконка svg"
+                />
+                Продажа недвижимости
+              </a>
+              <span class="gradient-border"></span>
+            </div>
+            <div class="gradient-container">
+              <a
+                href="/managment"
+                class="toMainPage glow-on-hover"
+                data-id="11"
+              >
+                <img
+                  src="https://static.tildacdn.com/tild3661-3230-4338-b934-363330616164/managment.svg"
+                  alt="управление иконка svg"
+                />
+                Управление
+              </a>
+              <span class="gradient-border"></span>
+            </div>
+            <div class="gradient-container">
+              <a href="/marketing" class="toMainPage glow-on-hover" data-id="8">
+                <img
+                  src="https://static.tildacdn.com/tild6464-3862-4435-a330-333765306362/marketing.svg"
+                  alt="маркетинг иконка svg"
+                />
+                Маркетинг
+              </a>
+              <span class="gradient-border"></span>
+            </div>
+            <div class="gradient-container">
+              <a href="/medicine" class="toMainPage glow-on-hover" data-id="4">
+                <img
+                  src="https://static.tildacdn.com/tild3066-6534-4065-b564-366639336233/selling_house.svg"
+                  alt="медицина иконка svg"
+                />
+                Медицина
+              </a>
+              <span class="gradient-border"></span>
+            </div>
+            <div class="gradient-container">
+              <a
+                href="/production"
+                class="toMainPage glow-on-hover"
+                data-id="3"
+              >
+                <img
+                  src="https://static.tildacdn.com/tild3164-3534-4635-b265-663663396433/production.svg"
+                  alt="производство иконка svg"
+                />
+                Производство
+              </a>
+              <span class="gradient-border"></span>
+            </div>
+            <div class="gradient-container">
+              <a href="/retail" class="toMainPage glow-on-hover" data-id="1">
+                <img
+                  src="https://static.tildacdn.com/tild3835-3966-4639-b238-393333643939/roznotsa_market.svg"
+                  alt="розничная торговля иконка svg"
+                />
+                Розничная торговля
+              </a>
+              <span class="gradient-border"></span>
+            </div>
+            <div class="gradient-container">
+              <a href="/wholesale" class="toMainPage glow-on-hover" data-id="0">
+                <img
+                  src="https://static.tildacdn.com/tild3865-3665-4865-a364-363235643563/opto_market.svg"
+                  alt="оптовая торговля иконка svg"
+                />
+                Оптовая торговля
+              </a>
+              <span class="gradient-border"></span>
             </div>
           </div>
         </div>
       </div>
+      <!-- <div class="section segments" id="segments">
+        <div class="container">
+          <h2><span class="green_text">Выберите</span> свой сегмент</h2>
+          <p class="subtitle">
+            Получите индивидуальное решение для Вашего бизнеса, ознакомьтесь с
+            нашими пакетами и кейсами
+          </p>
+          <div class="segments__main">
+            <div class="gradient-container">
+              <a href="/carservice" class="toMainPage glow-on-hover">
+                <img
+                  src="https://static.tildacdn.com/tild6634-6236-4365-a663-613636333439/autoservice.svg"
+                  alt="автосервис иконка svg"
+                  loading="lazy"
+                />
+                Автосервис
+              </a>
+              <span class="gradient-border"></span>
+            </div>
+
+            <div class="gradient-container">
+              <a href="/lease" class="toMainPage glow-on-hover">
+                <img
+                  src="https://static.tildacdn.com/tild6533-3331-4363-b639-633035663535/arenda.svg"
+                  alt="автосервис иконка svg"
+                  loading="lazy"
+                />
+                Аренда
+              </a>
+              <span class="gradient-border"></span>
+            </div>
+
+            <div class="gradient-container">
+              <a href="/wholesale" class="toMainPage glow-on-hover">
+                <img
+                  src="https://static.tildacdn.com/tild3865-3665-4865-a364-363235643563/opto_market.svg"
+                  alt="оптовая торговля иконка svg"
+                  loading="lazy"
+                />
+                Оптовая торговля
+              </a>
+              <span class="gradient-border"></span>
+            </div>
+
+            <div class="gradient-container">
+              <a href="/education" class="toMainPage glow-on-hover">
+                <img
+                  src="https://static.tildacdn.com/tild3462-3532-4032-b030-633065303336/education.svg"
+                  alt="образование иконка svg"
+                  loading="lazy"
+                />
+                Образование
+              </a>
+              <span class="gradient-border"></span>
+            </div>
+
+            <div class="gradient-container">
+              <a href="/hr" class="toMainPage glow-on-hover">
+                <img
+                  src="https://static.tildacdn.com/tild3035-6237-4335-a638-623831386437/arenda.png"
+                  alt="автосервис иконка svg"
+                  loading="lazy"
+                />
+                HR
+              </a>
+              <span class="gradient-border"></span>
+            </div>
+
+            <div class="gradient-container">
+              <a href="/medicine" class="toMainPage glow-on-hover">
+                <img
+                  src="https://static.tildacdn.com/tild3066-6534-4065-b564-366639336233/selling_house.svg"
+                  alt="медицина иконка svg"
+                  loading="lazy"
+                />
+                Медицина
+              </a>
+              <span class="gradient-border"></span>
+            </div>
+
+            <div class="gradient-container">
+              <a href="/marketing" class="toMainPage glow-on-hover">
+                <img
+                  src="https://static.tildacdn.com/tild6464-3862-4435-a330-333765306362/marketing.svg"
+                  alt="автосервис иконка svg"
+                  loading="lazy"
+                />
+                Маркетинг
+              </a>
+              <span class="gradient-border"></span>
+            </div>
+
+            <div class="gradient-container">
+              <a href="/management" class="toMainPage glow-on-hover">
+                <img
+                  src="https://static.tildacdn.com/tild3661-3230-4338-b934-363330616164/managment.svg"
+                  alt="автосервис иконка svg"
+                  loading="lazy"
+                />
+                Управление
+              </a>
+              <span class="gradient-border"></span>
+            </div>
+
+            <div class="gradient-container">
+              <a href="/immovables" class="toMainPage glow-on-hover">
+                <img
+                  src="https://static.tildacdn.com/tild6465-3265-4133-a438-633165303231/selling_house.svg"
+                  alt="продажа недвижимости иконка svg"
+                  loading="lazy"
+                />
+                Продажа недвижимости
+              </a>
+              <span class="gradient-border"></span>
+            </div>
+
+            <div class="gradient-container">
+              <a href="/production" class="toMainPage glow-on-hover">
+                <img
+                  src="https://static.tildacdn.com/tild3164-3534-4635-b265-663663396433/production.svg"
+                  alt="производство иконка svg"
+                  loading="lazy"
+                />
+                Производство
+              </a>
+              <span class="gradient-border"></span>
+            </div>
+
+            <div class="gradient-container">
+              <a href="/retail" class="toMainPage glow-on-hover">
+                <img
+                  src="https://static.tildacdn.com/tild3835-3966-4639-b238-393333643939/roznotsa_market.svg"
+                  alt="розничная торговля иконка svg"
+                  loading="lazy"
+                />
+                Розничная торговля
+              </a>
+              <span class="gradient-border"></span>
+            </div>
+
+            <div class="gradient-container">
+              <a href="/construction" class="toMainPage glow-on-hover">
+                <img
+                  src="https://static.tildacdn.com/tild6138-6431-4664-b839-626166383437/building.svg"
+                  alt="строительство иконка svg"
+                  loading="lazy"
+                />
+                Строительство
+              </a>
+              <span class="gradient-border"></span>
+            </div>
+          </div>
+        </div>
+      </div> -->
       <div class="section trust">
         <div class="container">
           <h2>Доверьте настройку системы профессионалам</h2>
@@ -724,160 +1008,7 @@
           </button>
         </div>
       </div>
-      <div class="section segments" id="segments">
-        <div class="container">
-          <h2><span class="green_text">Выберите</span> свой сегмент</h2>
-          <p class="subtitle">
-            Получите индивидуальное решение для Вашего бизнеса, ознакомьтесь с
-            нашими пакетами и кейсами
-          </p>
-          <div class="segments__main">
-            <div class="gradient-container">
-              <a href="/carservice" class="toMainPage glow-on-hover">
-                <img
-                  src="https://static.tildacdn.com/tild6634-6236-4365-a663-613636333439/autoservice.svg"
-                  alt="автосервис иконка svg"
-                  loading="lazy"
-                />
-                Автосервис
-              </a>
-              <span class="gradient-border"></span>
-            </div>
 
-            <div class="gradient-container">
-              <a href="/lease" class="toMainPage glow-on-hover">
-                <img
-                  src="https://static.tildacdn.com/tild6533-3331-4363-b639-633035663535/arenda.svg"
-                  alt="автосервис иконка svg"
-                  loading="lazy"
-                />
-                Аренда
-              </a>
-              <span class="gradient-border"></span>
-            </div>
-
-            <div class="gradient-container">
-              <a href="/wholesale" class="toMainPage glow-on-hover">
-                <img
-                  src="https://static.tildacdn.com/tild3865-3665-4865-a364-363235643563/opto_market.svg"
-                  alt="оптовая торговля иконка svg"
-                  loading="lazy"
-                />
-                Оптовая торговля
-              </a>
-              <span class="gradient-border"></span>
-            </div>
-
-            <div class="gradient-container">
-              <a href="/education" class="toMainPage glow-on-hover">
-                <img
-                  src="https://static.tildacdn.com/tild3462-3532-4032-b030-633065303336/education.svg"
-                  alt="образование иконка svg"
-                  loading="lazy"
-                />
-                Образование
-              </a>
-              <span class="gradient-border"></span>
-            </div>
-
-            <div class="gradient-container">
-              <a href="/hr" class="toMainPage glow-on-hover">
-                <img
-                  src="https://static.tildacdn.com/tild3035-6237-4335-a638-623831386437/arenda.png"
-                  alt="автосервис иконка svg"
-                  loading="lazy"
-                />
-                HR
-              </a>
-              <span class="gradient-border"></span>
-            </div>
-
-            <div class="gradient-container">
-              <a href="/medicine" class="toMainPage glow-on-hover">
-                <img
-                  src="https://static.tildacdn.com/tild3066-6534-4065-b564-366639336233/selling_house.svg"
-                  alt="медицина иконка svg"
-                  loading="lazy"
-                />
-                Медицина
-              </a>
-              <span class="gradient-border"></span>
-            </div>
-
-            <div class="gradient-container">
-              <a href="/marketing" class="toMainPage glow-on-hover">
-                <img
-                  src="https://static.tildacdn.com/tild6464-3862-4435-a330-333765306362/marketing.svg"
-                  alt="автосервис иконка svg"
-                  loading="lazy"
-                />
-                Маркетинг
-              </a>
-              <span class="gradient-border"></span>
-            </div>
-
-            <div class="gradient-container">
-              <a href="/management" class="toMainPage glow-on-hover">
-                <img
-                  src="https://static.tildacdn.com/tild3661-3230-4338-b934-363330616164/managment.svg"
-                  alt="автосервис иконка svg"
-                  loading="lazy"
-                />
-                Управление
-              </a>
-              <span class="gradient-border"></span>
-            </div>
-
-            <div class="gradient-container">
-              <a href="/immovables" class="toMainPage glow-on-hover">
-                <img
-                  src="https://static.tildacdn.com/tild6465-3265-4133-a438-633165303231/selling_house.svg"
-                  alt="продажа недвижимости иконка svg"
-                  loading="lazy"
-                />
-                Продажа недвижимости
-              </a>
-              <span class="gradient-border"></span>
-            </div>
-
-            <div class="gradient-container">
-              <a href="/production" class="toMainPage glow-on-hover">
-                <img
-                  src="https://static.tildacdn.com/tild3164-3534-4635-b265-663663396433/production.svg"
-                  alt="производство иконка svg"
-                  loading="lazy"
-                />
-                Производство
-              </a>
-              <span class="gradient-border"></span>
-            </div>
-
-            <div class="gradient-container">
-              <a href="/retail" class="toMainPage glow-on-hover">
-                <img
-                  src="https://static.tildacdn.com/tild3835-3966-4639-b238-393333643939/roznotsa_market.svg"
-                  alt="розничная торговля иконка svg"
-                  loading="lazy"
-                />
-                Розничная торговля
-              </a>
-              <span class="gradient-border"></span>
-            </div>
-
-            <div class="gradient-container">
-              <a href="/construction" class="toMainPage glow-on-hover">
-                <img
-                  src="https://static.tildacdn.com/tild6138-6431-4664-b839-626166383437/building.svg"
-                  alt="строительство иконка svg"
-                  loading="lazy"
-                />
-                Строительство
-              </a>
-              <span class="gradient-border"></span>
-            </div>
-          </div>
-        </div>
-      </div>
       <div class="section cases-block">
         <div class="container trustUs-block" id="trustUs_container">
           <h2>Нам доверяют</h2>
@@ -2108,7 +2239,6 @@
               </div>
             </li>
 
-
             <li class="cases_all__card">
               <div class="cases_all__header">
                 <div class="cases_all__logo">
@@ -2232,9 +2362,6 @@
               </div>
             </li>
 
-
-
-
             <li class="cases_all__card">
               <div class="cases_all__header">
                 <div class="cases_all__logo">
@@ -2245,53 +2372,53 @@
                   />
                   <button data-name="aibolit" class="case_with_review">
                     <svg
-                    class="play_button"
-                    version="1.1"
-                    id="Layer_1"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    width="64px"
-                    height="64px"
-                    viewBox="-1.6 -1.6 35.20 35.20"
-                    enable-background="new 0 0 32 32"
-                    xml:space="preserve"
-                    fill="#04d404"
-                    stroke="#04d404"
-                    stroke-width="0.00032"
-                  >
-                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                    <g
-                      id="SVGRepo_tracerCarrier"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke="#CCCCCC"
-                      stroke-width="0.128"
-                    ></g>
-                    <g id="SVGRepo_iconCarrier">
-                      <g>
-                        <path
-                          fill="#04d404"
-                          d="M16,0C7.178,0,0,7.178,0,16s7.178,16,16,16s16-7.178,16-16S24.822,0,16,0z M16,31C7.729,31,1,24.271,1,16 S7.729,1,16,1s15,6.729,15,15S24.271,31,16,31z"
-                        ></path>
-                        <path
-                          fill="#04d404"
-                          d="M19.609,14.802L14.316,10.8c-0.263-0.197-0.567-0.302-0.88-0.302C12.631,10.498,12,11.158,12,12v8 c0,0.842,0.635,1.502,1.445,1.502c0.313,0,0.619-0.104,0.885-0.304l5.258-3.998c0.382-0.287,0.611-0.742,0.611-1.218 C20.198,15.512,19.983,15.081,19.609,14.802z M18.985,16.401l-5.258,3.998C13.434,20.622,13,20.453,13,20v-8 c0-0.326,0.225-0.502,0.437-0.502c0.096,0,0.19,0.034,0.279,0.101l5.293,4.002c0.165,0.123,0.19,0.292,0.19,0.382 C19.198,16.147,19.122,16.3,18.985,16.401z"
-                        ></path>
+                      class="play_button"
+                      version="1.1"
+                      id="Layer_1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      width="64px"
+                      height="64px"
+                      viewBox="-1.6 -1.6 35.20 35.20"
+                      enable-background="new 0 0 32 32"
+                      xml:space="preserve"
+                      fill="#04d404"
+                      stroke="#04d404"
+                      stroke-width="0.00032"
+                    >
+                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                      <g
+                        id="SVGRepo_tracerCarrier"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke="#CCCCCC"
+                        stroke-width="0.128"
+                      ></g>
+                      <g id="SVGRepo_iconCarrier">
+                        <g>
+                          <path
+                            fill="#04d404"
+                            d="M16,0C7.178,0,0,7.178,0,16s7.178,16,16,16s16-7.178,16-16S24.822,0,16,0z M16,31C7.729,31,1,24.271,1,16 S7.729,1,16,1s15,6.729,15,15S24.271,31,16,31z"
+                          ></path>
+                          <path
+                            fill="#04d404"
+                            d="M19.609,14.802L14.316,10.8c-0.263-0.197-0.567-0.302-0.88-0.302C12.631,10.498,12,11.158,12,12v8 c0,0.842,0.635,1.502,1.445,1.502c0.313,0,0.619-0.104,0.885-0.304l5.258-3.998c0.382-0.287,0.611-0.742,0.611-1.218 C20.198,15.512,19.983,15.081,19.609,14.802z M18.985,16.401l-5.258,3.998C13.434,20.622,13,20.453,13,20v-8 c0-0.326,0.225-0.502,0.437-0.502c0.096,0,0.19,0.034,0.279,0.101l5.293,4.002c0.165,0.123,0.19,0.292,0.19,0.382 C19.198,16.147,19.122,16.3,18.985,16.401z"
+                          ></path>
+                        </g>
                       </g>
-                    </g>
-                  </svg>
-                  <svg
-                    class="pause_button"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="64"
-                    height="64"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fill="#05cb0a"
-                      d="M9 7.5a.5.5 0 0 0-1 0v5a.5.5 0 0 0 1 0zm3 0a.5.5 0 0 0-1 0v5a.5.5 0 0 0 1 0zM10 2a8 8 0 1 0 0 16a8 8 0 0 0 0-16m-7 8a7 7 0 1 1 14 0a7 7 0 0 1-14 0"
-                    />
-                  </svg>
+                    </svg>
+                    <svg
+                      class="pause_button"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="64"
+                      height="64"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill="#05cb0a"
+                        d="M9 7.5a.5.5 0 0 0-1 0v5a.5.5 0 0 0 1 0zm3 0a.5.5 0 0 0-1 0v5a.5.5 0 0 0 1 0zM10 2a8 8 0 1 0 0 16a8 8 0 0 0 0-16m-7 8a7 7 0 1 1 14 0a7 7 0 0 1-14 0"
+                      />
+                    </svg>
                   </button>
                 </div>
                 <h3>Кулинарный цех СМ Айболит</h3>
