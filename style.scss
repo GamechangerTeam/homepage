@@ -332,25 +332,26 @@ $grayGradient: linear-gradient(
 
 // #endregion
 
-body::-webkit-scrollbar {
-  position: absolute !important;
-  right: 0;
-  width: 8px;
-}
-body::-webkit-scrollbar-track {
-  background: transparent;
-}
-body::-webkit-scrollbar-thumb {
-  background-color: #eaeaea50;
-  border-radius: 10px;
-  transition: 0.3s;
-  &:active {
-    background-color: #eaeaea;
+body,
+.container, ul {
+  &::-webkit-scrollbar {
+    position: absolute !important;
+    right: 0;
+    width: 8px;
   }
-}
 
-body::-webkit-scrollbar-thumb:active {
-  cursor: grabbing;
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #eaeaea50;
+    border-radius: 10px;
+    transition: 0.3s;
+    &:active {
+      background-color: #eaeaea;
+    }
+  }
 }
 
 * {
@@ -661,12 +662,13 @@ p {
     position: relative;
     border-radius: 10px;
     z-index: 10;
-    padding: 20px;
+    padding: 20px 20px 150px;
     min-height: 100vh;
     height: 100%;
     display: grid;
     grid-template-rows: 1fr auto;
     @include tablet() {
+      padding: 50px 20px;
       display: block;
     }
   }
@@ -712,8 +714,7 @@ p {
     display: flex;
     flex-direction: column;
     &-logo-wrapper {
-      min-height: 200px;
-      height: 100%;
+      height: 250px;
       aspect-ratio: 1/1;
       margin: auto;
       position: relative;
@@ -830,7 +831,7 @@ p {
         font-size: 14px;
       }
       img {
-        width: 40px;
+        width: 60px;
         @include mobile() {
           width: 32px;
         }
@@ -842,7 +843,6 @@ p {
     }
 
     @include tablet {
-      // grid-template-columns: 1fr 1fr 1fr;s
       gap: 16px;
       grid-template-columns: repeat(2, 1fr);
     }
@@ -990,9 +990,9 @@ p {
 
   img {
     position: absolute;
-    width: 600px;
+    width: 500px;
     right: 20px;
-    bottom: 40%;
+    bottom: 50%;
     transform: translateY(50%);
   }
 
@@ -1273,7 +1273,7 @@ p {
     width: 50%;
   }
 
-  a {
+  button {
     @include greenBtn();
     width: fit-content;
   }
@@ -2057,13 +2057,12 @@ p {
   font-size: 16px;
 
   .container {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template: auto 1fr / auto;
     gap: 40px;
     padding-top: 70px;
     position: relative;
-    overflow: auto;
-    padding: 100px 20px 0;
+     padding: 20px 20px 0;
   }
 
   &.active {
@@ -2078,16 +2077,12 @@ p {
 
   .hide_left_section {
     @include grayBtn();
-    width: fit-content;
-    position: fixed;
     background-color: transparent;
     padding: 12px 24px;
     backdrop-filter: blur(20px);
-    top: 30px;
-    left: -100%;
-    z-index: 5;
-    transition: 0.5s ease-out;
     color: white;
+    margin-left: auto;
+    grid-area: 1/2;
   }
 
   ul {
@@ -2095,6 +2090,8 @@ p {
     flex-direction: column;
     gap: 40px;
     padding: 0 !important;
+    overflow-y: auto;
+    grid-column-start: 2 span;
   }
 
   li {
