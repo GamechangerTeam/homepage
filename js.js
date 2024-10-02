@@ -156,19 +156,11 @@ openLeftSection.forEach((btn) => {
 const partners_swiper = new Swiper("#partners_swiper", {
   slidesPerView: 1,
   spaceBetween: 20,
-  centeredSlides: false,
-  grid: {
-    rows: 2,
-  },
 
   breakpoints: {
     526: {
       spaceBetween: 0,
       slidesPerView: 5,
-      centeredSlides: false,
-      grid: {
-        rows: 1,
-      },
     },
   },
   pagination: {
