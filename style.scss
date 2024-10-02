@@ -884,11 +884,15 @@ p {
     }
 
     h3 {
-      text-align: left;
+      text-align: center;
       position: relative;
       z-index: 1;
       backdrop-filter: blur(20px);
       font-size: 1.5rem;
+    }
+
+    p {
+      text-align: center;
     }
   }
 
@@ -911,6 +915,7 @@ p {
     }
     p {
       font-size: 18px;
+
     }
 
     .smaller_text {
@@ -1388,7 +1393,6 @@ p {
       }
 
       button {
-        // position: relative;
         svg {
           position: absolute;
           top: 50%;
