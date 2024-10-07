@@ -256,7 +256,10 @@ $grayGradient: linear-gradient(
 }
 
 .hide_on_mobile {
-  display: none !important;
+  @include mobile() {
+    display: none !important;
+
+  }
 }
 
 .hide_on_laptop {

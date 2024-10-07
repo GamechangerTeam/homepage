@@ -156,11 +156,17 @@ openLeftSection.forEach((btn) => {
 const partners_swiper = new Swiper("#partners_swiper", {
   slidesPerView: 1,
   spaceBetween: 20,
+  grid: {
+    rows: 2
+  },
 
   breakpoints: {
     526: {
       spaceBetween: 0,
       slidesPerView: 5,
+      grid: {
+        rows: 2
+      },
     },
   },
   pagination: {
@@ -203,7 +209,6 @@ const trustUs = new Swiper("#trustUs", {
 });
 
 const sendForm = async (name, number, comments) => {
-  console.log("🚀 ~ sendForm ~ name:", name);
   const data = {
     fields: {
       TITLE: `${name} / ${number}`,
@@ -273,3 +278,39 @@ play_sound.forEach((btn) => {
     }
   });
 });
+
+
+// Находим контейнер слайдов
+const partnersSwiper_container = document.getElementById('partners_swiper');
+const partnersSwiper = partnersSwiper_container.querySelector(".swiper-wrapper")
+
+// Кэшируем все слайды в их первоначальном порядке
+const slides = Array.from(partnersSwiper.getElementsByClassName('swiper-slide'));
+
+// Порядок слайдов при разрешении больше 525px
+const desktopOrder = [0, 1, 2, 3, 4];
+
+// Порядок слайдов при разрешении 525px и меньше
+const mobileOrder = [0, 2, 4, 1, 3];
+
+// Функция для изменения порядка слайдов
+function rearrangeSlides() {
+    const windowWidth = window.innerWidth;
+
+    // Очищаем контейнер слайдов
+    partnersSwiper.innerHTML = '';
+
+    // Определяем порядок слайдов в зависимости от ширины экрана
+    const order = windowWidth > 525 ? desktopOrder : mobileOrder;
+
+    // Вставляем слайды в новом порядке
+    order.forEach(index => {
+        partnersSwiper.appendChild(slides[index].cloneNode(true));
+    });
+}
+
+// Отслеживаем изменение размера окна
+window.addEventListener('resize', rearrangeSlides);
+
+// Запускаем перестановку при первой загрузке страницы
+window.addEventListener('load', rearrangeSlides);

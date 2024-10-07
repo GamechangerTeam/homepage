@@ -86,8 +86,10 @@
   transition: 0.1s;
 }
 
-.hide_on_mobile {
-  display: none !important;
+@media (max-width: 525px) {
+  .hide_on_mobile {
+    display: none !important;
+  }
 }
 
 @media (max-width: 960px) {
