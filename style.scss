@@ -258,7 +258,6 @@ $grayGradient: linear-gradient(
 .hide_on_mobile {
   @include mobile() {
     display: none !important;
-
   }
 }
 
@@ -340,7 +339,8 @@ $grayGradient: linear-gradient(
 }
 
 body,
-.container, ul {
+.container,
+ul {
   &::-webkit-scrollbar {
     position: absolute !important;
     right: 0;
@@ -473,7 +473,6 @@ p {
     padding: 50px 10px;
   }
 }
-
 
 .homepage {
   position: relative;
@@ -918,7 +917,6 @@ p {
     }
     p {
       font-size: 18px;
-
     }
 
     .smaller_text {
@@ -1663,6 +1661,39 @@ p {
   }
 }
 
+.contacts {
+  background-color: black;
+  position: relative;
+  color: white;
+  .container {
+    display: grid;
+    grid-template-columns: .8fr 1fr;
+    gap: 30px;
+
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  @include tablet() {
+    .container {
+      grid-template: 1fr auto / 1fr;
+
+    }
+
+    &__info {
+      justify-content: flex-start;
+    }
+  }
+}
+
 .slideIn_left {
   position: fixed;
   top: 0;
@@ -1724,13 +1755,35 @@ p {
     }
   }
 
-  &__form {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  #video {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+    @include tablet() {
+      width: 70%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+    }
   }
+
+  &__back-btn {
+    @include goBack-btn();
+    width: fit-content;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+  }
+}
+
+.consultation__form {
+  color: white;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 
   form {
     display: flex;
@@ -1803,27 +1856,6 @@ p {
       }
     }
   }
-
-  #video {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1/1;
-    @include tablet() {
-      width: 70%;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: -1;
-    }
-  }
-
-  &__back-btn {
-    @include goBack-btn();
-    width: fit-content;
-    background-color: transparent;
-    backdrop-filter: blur(10px);
-  }
 }
 
 .case_with_review {
@@ -1889,7 +1921,7 @@ p {
     gap: 40px;
     padding-top: 70px;
     position: relative;
-     padding: 20px 20px 0;
+    padding: 20px 20px 0;
   }
 
   &.active {
