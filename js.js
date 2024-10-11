@@ -236,21 +236,23 @@ const trustUs = new Swiper("#trustUs", {
 });
 
 const sendForm = async (name, number, comments) => {
-  const data = {
-    fields: {
-      TITLE: `${name} / ${number}`,
-      COMMENTS: comments,
-    },
-    params: { REGISTER_SONET_EVENT: "Y" },
-  };
+  // const data = {
+  //   fields: {
+  //     TITLE: `${name} / ${number}`,
+  //     COMMENTS: comments,
+  //   },
+  //   params: { REGISTER_SONET_EVENT: "Y" },
+  // };
   try {
-    const req = await fetch(readyUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
+    // const req = await fetch(readyUrl, {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(data),
+    // });
+
+    const req = await fetch(`${readyUrl}/?name=${name}&phone=${number}&functions=${comments}`)
 
     const res = await req.json();
     if (res.result) {
