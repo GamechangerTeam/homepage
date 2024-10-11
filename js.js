@@ -257,7 +257,7 @@ const sendForm = async (name, number, comments) => {
       console.log("Сделка успешно создана с ID:", res.result);
       return true;
     } else {
-      console.error("Ошибка при запросе:", error);
+      console.log("Ошибка при запросе:");
       return false;
     }
   } catch (error) {
