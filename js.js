@@ -93,28 +93,55 @@ document.getElementById("checkBtn").addEventListener("click", function () {
   input.value = selected.join(", ");
 });
 
-const submit = document.querySelector(".submit-btn");
+const consultation__form = document.querySelectorAll(".consultation__form");
 
-submit.addEventListener("click", async (e) => {
-  e.preventDefault();
+consultation__form.forEach((form) => {
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault(); // Останавливает отправку формы
+    let submitBtn = form.querySelector(".submit-btn");
 
-  const name = document.getElementById("name_inp").value;
-  console.log("🚀 ~ submit.addEventListener ~ name:", name);
-  const number = document.getElementById("num_inp").value;
-  const comments = document.getElementById("comments").value;
-  if (name && number) {
-    console.log("🚀 ~ submit.addEventListener ~ name:", name);
-    submit.querySelector("svg").style.opacity = 1;
-    submit.querySelector("span").innerText = "";
-    const res = await sendForm(name, number, comments);
-    console.log("🚀 ~ submit.addEventListener ~ name:", name);
-    if (res) {
-      submit.disabled = true;
-      submit.querySelector("svg").style.opacity = 0;
-      submit.querySelector("span").innerText = "Отправлено!";
+    if (submitBtn) {
+      e.preventDefault();
+      const name = form.querySelector("#name_inp").value;
+      const number = form.querySelector("#num_inp").value;
+      const comments = form.querySelector("#comments").value;
+      if (name && number) {
+        submitBtn.querySelector("svg").style.opacity = 1;
+        submitBtn.querySelector("span").innerText = "";
+        const res = await sendForm(name, number, comments);
+        if (res) {
+          submitBtn.disabled = true;
+          submitBtn.querySelector("svg").style.opacity = 0;
+          submitBtn.querySelector("span").innerText = "Отправлено!";
+          console.log("Форма отправлена!", res, name, number, comments);
+        }
+      }
     }
-  }
+  });
 });
+
+// const submitBtns = document.querySelectorAll(".submit-btn");
+// submitBtns.forEach(btn => {
+//   btn.addEventListener("click", async (e) => {
+
+//     const name = btn.getElementById("name_inp").value;
+//     console.log("🚀 ~ submit.addEventListener ~ name:", name);
+//     const number = document.getElementById("num_inp").value;
+//     const comments = document.getElementById("comments").value;
+//     if (name && number) {
+//       console.log("🚀 ~ submit.addEventListener ~ name:", name);
+//       submit.querySelector("svg").style.opacity = 1;
+//       submit.querySelector("span").innerText = "";
+//       const res = await sendForm(name, number, comments);
+//       console.log("🚀 ~ submit.addEventListener ~ name:", name);
+//       if (res) {
+//         submit.disabled = true;
+//         submit.querySelector("svg").style.opacity = 0;
+//         submit.querySelector("span").innerText = "Отправлено!";
+//       }
+//     }
+//   });
+// })
 
 // const lenis = new Lenis();
 
@@ -157,7 +184,7 @@ const partners_swiper = new Swiper("#partners_swiper", {
   slidesPerView: 1,
   spaceBetween: 20,
   grid: {
-    rows: 2
+    rows: 2,
   },
 
   breakpoints: {
@@ -165,7 +192,7 @@ const partners_swiper = new Swiper("#partners_swiper", {
       spaceBetween: 0,
       slidesPerView: 5,
       grid: {
-        rows: 2
+        rows: 2,
       },
     },
   },
@@ -279,13 +306,15 @@ play_sound.forEach((btn) => {
   });
 });
 
-
 // Находим контейнер слайдов
-const partnersSwiper_container = document.getElementById('partners_swiper');
-const partnersSwiper = partnersSwiper_container.querySelector(".swiper-wrapper")
+const partnersSwiper_container = document.getElementById("partners_swiper");
+const partnersSwiper =
+  partnersSwiper_container.querySelector(".swiper-wrapper");
 
 // Кэшируем все слайды в их первоначальном порядке
-const slides = Array.from(partnersSwiper.getElementsByClassName('swiper-slide'));
+const slides = Array.from(
+  partnersSwiper.getElementsByClassName("swiper-slide")
+);
 
 // Порядок слайдов при разрешении больше 525px
 const desktopOrder = [0, 1, 2, 3, 4];
@@ -295,22 +324,22 @@ const mobileOrder = [0, 2, 4, 1, 3];
 
 // Функция для изменения порядка слайдов
 function rearrangeSlides() {
-    const windowWidth = window.innerWidth;
+  const windowWidth = window.innerWidth;
 
-    // Очищаем контейнер слайдов
-    partnersSwiper.innerHTML = '';
+  // Очищаем контейнер слайдов
+  partnersSwiper.innerHTML = "";
 
-    // Определяем порядок слайдов в зависимости от ширины экрана
-    const order = windowWidth > 525 ? desktopOrder : mobileOrder;
+  // Определяем порядок слайдов в зависимости от ширины экрана
+  const order = windowWidth > 525 ? desktopOrder : mobileOrder;
 
-    // Вставляем слайды в новом порядке
-    order.forEach(index => {
-        partnersSwiper.appendChild(slides[index].cloneNode(true));
-    });
+  // Вставляем слайды в новом порядке
+  order.forEach((index) => {
+    partnersSwiper.appendChild(slides[index].cloneNode(true));
+  });
 }
 
 // Отслеживаем изменение размера окна
-window.addEventListener('resize', rearrangeSlides);
+window.addEventListener("resize", rearrangeSlides);
 
 // Запускаем перестановку при первой загрузке страницы
-window.addEventListener('load', rearrangeSlides);
+window.addEventListener("load", rearrangeSlides);
