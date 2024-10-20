@@ -359,7 +359,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Обработчик кликов по элементам
 
-  tarifsList.addEventListener("click", (e) => {
+  tarifsList?.addEventListener("click", (e) => {
     let item = e.target.closest(".item");
     if (item.id === "individual") return;
     let licensesBtn = e.target.closest(".change-licenses-tarif");

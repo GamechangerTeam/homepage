@@ -359,10 +359,6 @@ video {
     left: -100%;
   }
 }
-header {
-  background-color: gray !important;
-}
-
 @media (max-width: 1200px) {
   .section {
     min-height: auto !important;
@@ -2833,6 +2829,7 @@ wi .tarifs-block .open_left_section:hover {
     margin: 0 auto;
   }
 }
+
 .possibilities-block {
   background-color: #eaeaea;
   color: black;
