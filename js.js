@@ -1,347 +1,608 @@
-//  ЭЛЕМЕНТ ДЛЯ ЗАДЕРЖКИ МЕЖДУ НАЖАТИЕМ КНОПОК
-let ready = true;
-const video = document.getElementById("video");
-// ВИДЕО
-const preloader = document.querySelector("#logo_preloader");
-// ДОП. БЛОКИ СЛЕВА
-const leftSection = document.querySelectorAll(".slideIn_left");
-const openLeftSection = document.querySelectorAll(".open_left_section");
-const hideLeftSection = document.querySelectorAll(".hide_left_section");
-const consultation_Page = document.querySelector(".consultation");
-const cases_all = document.querySelector(".cases_all");
-
-// // ЛОГИКА УДАЛЕНИЯ ПРЕЛОУДЕРА ПРИ ЗАГРУЗКЕ ВИДЕО
-video.addEventListener("canplaythrough", function () {
-  preloader.style.display = "none";
-});
-
-const loadImages = () => {
-  const images = cases_all.querySelectorAll("img[data-src]");
-
-  if (images) {
-    images.forEach((img) => {
-      img.setAttribute("src", img.getAttribute("data-src"));
-      img.removeAttribute("data-src");
-    });
-  }
-};
-
-// ЗАКРЫТЬ СЕКЦИЮ
-hideLeftSection.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    consultation_Page.classList.remove("active");
-    cases_all.classList.remove("active");
-    document.body.style.overflow = "auto";
-  });
-});
-
-window.addEventListener("scroll", () => {
-  const trust = document.querySelector(".trust");
-  const trustPosition = trust.getBoundingClientRect().top;
-  const partner = document.querySelector(".partner");
-  const partnerPosition = partner.getBoundingClientRect().top;
-
-  const free = document.querySelector(".free");
-  const comfort = document.querySelector(".comfort");
-
-  // Проверяем, когда блок находится на самом верху или выше
-  if (partnerPosition <= 0 && window.innerWidth > 768) {
-    comfort.classList.remove("hidden");
-    free.classList.add("hidden");
-  } else if (trustPosition <= 0 && window.innerWidth > 768) {
-    free.classList.remove("hidden");
-    comfort.classList.add("hidden");
-  } else {
-    comfort.classList.add("hidden");
-    free.classList.add("hidden");
-  }
-});
-
-// FAQ
-const faq_list = document.querySelector(".faq__list");
-// ОТКРЫТИЕ КАРТОЧЕК В FAQ
-faq_list.addEventListener("click", (e) => {
-  const card = e.target.closest(".faq__card");
-  if (card) {
-    const main = card.querySelector(".faq__main");
-    const icon = card.querySelector(".plus-icon");
-    if (main.style.maxHeight) {
-      main.style.maxHeight = null;
-      icon.classList.toggle("active");
-    } else {
-      main.style.maxHeight = main.scrollHeight + "px";
-      icon.classList.toggle("active");
-    }
-  }
-});
-
-document.getElementById("checkBtn").addEventListener("click", function () {
-  // Находим все чекбоксы с именем 'option'
-  const checkboxes = document.querySelectorAll(
-    'input[name="function"]:checked'
-  );
-  let selected = [];
-
-  // Собираем значения выбранных чекбоксов
-  checkboxes.forEach((checkbox) => {
-    let label = checkbox.nextElementSibling;
-    let text = label.querySelector(".price_text");
-    selected.push(text.textContent);
-  });
-
-  const input = consultation_Page.querySelector("#comments");
-  input.value = selected.join(", ");
-});
-
-const consultation__form = document.querySelectorAll(".consultation__form");
-
-consultation__form.forEach((form) => {
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault(); // Останавливает отправку формы
-    let submitBtn = form.querySelector(".submit-btn");
-
-    if (submitBtn) {
-      e.preventDefault();
-      const name = form.querySelector("#name_inp").value;
-      const number = form.querySelector("#num_inp").value;
-      const comments = form.querySelector("#comments").value;
-      if (name && number) {
-        submitBtn.querySelector("svg").style.opacity = 1;
-        submitBtn.querySelector("span").innerText = "";
-        const res = await sendForm(name, number, comments);
-        if (res) {
-          submitBtn.disabled = true;
-          submitBtn.querySelector("svg").style.opacity = 0;
-          submitBtn.querySelector("span").innerText = "Отправлено!";
-          console.log("Форма отправлена!", res, name, number, comments);
-        }
-      }
-    }
-  });
-});
-
-// const submitBtns = document.querySelectorAll(".submit-btn");
-// submitBtns.forEach(btn => {
-//   btn.addEventListener("click", async (e) => {
-
-//     const name = btn.getElementById("name_inp").value;
-//     console.log("🚀 ~ submit.addEventListener ~ name:", name);
-//     const number = document.getElementById("num_inp").value;
-//     const comments = document.getElementById("comments").value;
-//     if (name && number) {
-//       console.log("🚀 ~ submit.addEventListener ~ name:", name);
-//       submit.querySelector("svg").style.opacity = 1;
-//       submit.querySelector("span").innerText = "";
-//       const res = await sendForm(name, number, comments);
-//       console.log("🚀 ~ submit.addEventListener ~ name:", name);
-//       if (res) {
-//         submit.disabled = true;
-//         submit.querySelector("svg").style.opacity = 0;
-//         submit.querySelector("span").innerText = "Отправлено!";
-//       }
-//     }
-//   });
-// })
-
-// const lenis = new Lenis();
-
-// function raf(time) {
-//   lenis.raf(time);
-//   requestAnimationFrame(raf);
-// }
-
-// requestAnimationFrame(raf);
-
-const url = "https://gamechanger.bitrix24.kz/rest/1026/o2wh86f2zi524mww/";
-const readyUrl =
-  "https://gamechanger.bitrix24.kz/rest/1026/o2wh86f2zi524mww/crm.lead.add.json";
-
-// ОТКРЫТЬ СЕКЦИЮ
-openLeftSection.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    btn.disabled = true;
-    setTimeout(() => {
-      btn.disabled = false;
-    }, 500);
-    const dataName = btn.getAttribute("data-name");
-    console.log("🚀 ~ btn.addEventListener ~ name:", name);
-    document.body.style.overflow = "hidden";
-    // lenis.stop()
-    if (dataName !== "casesAll") {
-      consultation_Page.style.visibility = "visible";
-      consultation_Page.style.opacity = "1";
-      consultation_Page.classList.toggle("active");
-    } else {
-      cases_all.classList.toggle("active");
-      cases_all.style.visibility = "visible";
-      cases_all.style.opacity = "1";
-      loadImages();
-    }
-  });
-});
-
-const partners_swiper = new Swiper("#partners_swiper", {
-  slidesPerView: 1,
-  spaceBetween: 20,
-  grid: {
-    rows: 2,
-  },
-
-  breakpoints: {
-    526: {
-      spaceBetween: 0,
-      slidesPerView: 5,
-      grid: {
-        rows: 2,
-      },
-    },
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-});
-
-const trustUs = new Swiper("#trustUs", {
-  // direction: "horizontal",
-  spaceBetween: 20,
-  slidesPerGroup: 2,
-  slidesPerView: 2,
-  grid: {
-    rows: 2,
-  },
-  breakpoints: {
-    769: {
-      slidesPerView: 4,
-      grid: {
-        rows: 2,
-      },
-    },
-
-    526: {
-      slidesPerView: 3,
-      grid: {
-        rows: 2,
-      },
-    },
-  },
-  pagination: {
-    el: ".trustUs_container-pagination",
-  },
-
-  navigation: {
-    nextEl: ".trustUs_container-button-next",
-    prevEl: ".trustUs_container-button-prev",
-  },
-});
-
-const sendForm = async (name, number, comments) => {
-  const data = {
-    fields: {
-      TITLE: `${name} / ${number}`,
-      COMMENTS: comments,
-    },
-    params: { REGISTER_SONET_EVENT: "Y" },
-  };
-  try {
-    const req = await fetch(readyUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-
-    // const req = await fetch(`${readyUrl}/?name=${name}&phone=${number}&functions=${comments}`)
-
-    const res = await req.json();
-    if (res.result) {
-      console.log("Сделка успешно создана с ID:", res.result);
-      return true;
-    } else {
-      console.log("Ошибка при запросе:");
-      return false;
-    }
-  } catch (error) {
-    console.error("ошибка", error);
-    return false;
-  }
-};
-
-const play_sound = document.querySelectorAll("button.case_with_review");
-const audio = [
+const licensesInfo = [
   {
-    name: "marten",
-    src: "https://dl.dropbox.com/scl/fi/uo6l39zoas1dpemyu2kyt/martinstal.ogg?rlkey=fgnfqellg787dvuhsylbrwm2a&st=mv2r1qo6&dl=0",
+    name: "Бесплатный",
+    content: `
+                    <div class="licenses__settings">
+                      <p class="licenses__settings--item1">
+                        Тариф доступен всем пользователям
+                      </p>
+                      <span
+                        class="vertical-line licenses__settings--item2"
+                      ></span>
+                      <p class="licenses__settings--item3">
+                        Диск 5 ГБ
+                        <span class="little-text">
+                          Без общего диска для компаний
+                        </span>
+                      </p>
+                      <span
+                        class="vertical-line licenses__settings--item4"
+                      ></span>
+                      <p class="licenses__settings--item5">
+                        Бесплатно за всех пользователей
+                      </p>
+                    </div>
+                    <div class="item__main__content">
+                      <p>Внутренний ИИ</p>
+                      <p>
+                        Календарь для каждого сотрудника для планирования
+                        мероприятий
+                      </p>
+                      <p>Организационная структура компании</p>
+                      <p>Виртуальный отдел управления персоналом</p>
+                      <p>
+                        Новостная лента в стиле Facebook для внутренних
+                        коммуникаций.
+                      </p>
+                      <p>Внутренний мессенджер с функциями WhatsApp</p>
+                      <p>
+                        Контакт-центр - интегрирующий все каналы заказов в
+                        единую систему управления.
+                      </p>
+                      <p>Конструктор сайтов с бесплатным хостингом</p>
+                      <p>База знаний компании</p>
+                      <p>Каталог товаров</p>
+                      <p>Автоматизация продаж через CRM</p>
+                      <p>Чек-ин на работе с геопозицией</p>
+                      <p>Работа с виртуальными задачами</p>
+                    </div>
+                  `,
   },
   {
-    name: "aibolit",
-    src: "https://dl.dropbox.com/scl/fi/0v16dzup0ri5nu05b62sk/Aibolit.ogg?rlkey=hdcuvg2ncotid53nd3yxpssnz&st=r8fgvsyx&dl=0",
+    name: "Базовый",
+    content: `
+                    <div class="licenses__settings">
+                      <p class="licenses__settings--item1">
+                        До 5 пользователей
+                      </p>
+                      <span
+                        class="vertical-line licenses__settings--item2"
+                      ></span>
+                      <p class="licenses__settings--item3">
+                        Диск 24 ГБ
+                        <span class="little-text">
+                          Без общего диска для компаний
+                        </span>
+                      </p>
+                      <span
+                        class="vertical-line licenses__settings--item4"
+                      ></span>
+                      <p class="licenses__settings--item5">
+                        9&nbsp;000₸/мес <br>
+                        86&nbsp;400₸/год
+                      </p>
+                    </div>
+                    <div class="item__main__content">
+                     <p>Складской учет</p>
+                     <p>Внутренний ИИ</p>
+                     <p>Демонстрация экрана</p>
+                     <p>Контакт-центр - интегрирующий все каналы  заказов в единую систему управления.</p>
+                     <p>Новостная лента в стиле Facebook  для внутренних коммуникаций.</p>
+                     <p>Интеграция с почтой ( 7 дней )</p>
+                     <p>Внутренний мессенджер с функциями WhatsApp</p>
+                     <p>Автогенерация счетов на оплату</p>
+                     <p>Конструктор сайтов с бесплатным хостингом</p>
+                     <p>Календарь для каждого сотрудника для планирования мероприятий</p>
+                     <p>Организационная структура компании</p>
+                     <p>Виртуальный отдел управления персоналом</p>
+                     <p>Автоматизация рабочих процессов через CRM</p>
+                     <p>База знаний компании</p>
+                     <p>Чек-ин на работе с геопозицией</p>
+                     <p>Автоматизация продаж через CRM</p>
+                     <p>Каталог товаров</p>
+                     <p>Работа с виртуальными задачами</p>
+                    </div>
+                  `,
+  },
+  {
+    name: "Стандартный",
+    content: `
+                    <div class="licenses__settings">
+                      <p class="licenses__settings--item1">
+                        До 50 пользователей
+                      </p>
+                      <span
+                        class="vertical-line licenses__settings--item2"
+                      ></span>
+                      <p class="licenses__settings--item3">
+                        Диск 100 ГБ
+
+                      </p>
+                      <span
+                        class="vertical-line licenses__settings--item4"
+                      ></span>
+                      <p class="licenses__settings--item5">
+                        24&nbsp;000₸/мес <br>
+                        230&nbsp;400₸/год
+                      </p>
+                    </div>
+                    <div class="item__main__content">
+                      <p>Новостная лента в стиле Facebook  для внутренних коммуникаций.</p>
+                    <p>Внутренний мессенджер с функциями WhatsApp
+и редактировнием документов</p>
+                    <p>Внутренний ИИ</p>
+                    <p>Демонстрация экрана</p>
+                    <p>Контакт-центр - интегрирующий все каналы  заказов в единую систему управления.</p>
+                    <p>Календарь для каждого сотрудника для планирования мероприятий</p>
+                    <p>Виртуальный отдел управления персоналом</p>
+                    <p>Организационная структура компании</p>
+                    <p>Автогенерация счетов на оплату</p>
+                    <p>Автоматизация рабочих процессов через CRM</p>
+                    <p>Работа с виртуальными задачами</p>
+                    <p>Интеграция с почтой ( 7 дней )</p>
+                    <p>Складской учет</p>
+                    <p>Возможность пригласить внешних пользователей
+в рабочие группы ( Экстра-нет )</p>
+                    <p>Коэффициент полезности каждого сотрудника</p>
+                    <p>Работа с виртуальными пректами</p>
+                    <p>Bi- конструктор</p>
+                    <p>Маркетинговый кабинет</p>
+                    <p>Конструктор сайтов с бесплатным хостингом</p>
+                    <p>База знаний компании</p>
+                    <p>Чек-ин на работе с геопозицией</p>
+                    <p>Автоматизация продаж через CRM</p>
+                    <p>Каталог товаров</p>
+                    </div>
+                  `,
+  },
+  {
+    name: "Профессиональный",
+    content: `
+                    <div class="licenses__settings">
+                      <p class="licenses__settings--item1">
+                        До 100 пользователей
+                      </p>
+                      <span
+                        class="vertical-line licenses__settings--item2"
+                      ></span>
+                      <p class="licenses__settings--item3">
+                        Диск 1 ТБ
+              
+                      </p>
+                      <span
+                        class="vertical-line licenses__settings--item4"
+                      ></span>
+                      <p class="licenses__settings--item5">
+                        45&nbsp;000₸/мес <br>
+                        432&nbsp;000₸/год
+                      </p>
+                    </div>
+                    <div class="item__main__content">
+                    <p>Внутренний ИИ</p>
+                    <p>Демонстрация экрана</p>
+                    <p>Конструктор сайтов с бесплатным хостингом</p>
+                    <p>Контакт-центр - интегрирующий все каналы  заказов в единую систему управления.</p>
+                    <p>Календарь для каждого сотрудника для планирования мероприятий</p>
+                    <p>Виртуальный отдел управления персоналом</p>
+                    <p>Организационная структура компании</p>
+                    <p>База знаний компании с возможностью ограничить права доступа</p>
+                    <p>Чек-ин на работе с геопозицией</p>
+                    <p>Автогенерация счетов на оплату</p>
+                    <p>Автоматизация рабочих процессов через CRM</p>
+                    <p>Автогенерация счетов на оплату и КП</p>
+                    <p>Виртуальные задачи с учетом времени, делегированием и пользовательскими полями</p>
+                    <p>Интеграция с почтой ( 7 дней )</p>
+                    <p>Складской учет</p>
+                    <p>Возможность пригласить внешних пользователей в рабочие группы ( Экстра-нет )</p>
+                    <p>Коэффициент полезности каждого сотрудника</p>
+                    <p>Работа с виртуальными пректами</p>
+                    <p>Bi- конструктор и конструктор отчетов</p>
+                    <p>Маркетинговый кабинет</p>
+                    <p>Задачи по подразделениям</p>
+                    <p>Бизнес-процессы и смарт-процессы</p>
+                    <p>Сквозная аналитика</p>
+                    <p>Автоматизация продаж через CRM</p>
+                    <p>Каталог товаров</p>
+                    <p>Гибкие методологии и управления командами ( Скрам )</p>
+                    </div>
+                  `,
+  },
+  {
+    name: "Энтерпрайз",
+    content: `
+                    <div class="licenses__settings">
+                      <p class="licenses__settings--item1">
+                        от 250 пользователей
+                      </p>
+                      <span
+                        class="vertical-line licenses__settings--item2"
+                      ></span>
+                      <p class="licenses__settings--item3">
+                        Диск 3 ТБ
+        
+                      </p>
+                      <span
+                        class="vertical-line licenses__settings--item4"
+                      ></span>
+                      <p class="licenses__settings--item5">
+                        100&nbsp;000₸/мес
+                      </p>
+                    </div>
+                    <div class="item__main__content">
+                      <p>Новостная лента в стиле Facebook  для внутренних коммуникаций.</p>
+                      <p>Внутренний мессенджер с функциями WhatsApp и редактировнием документов</p>
+                      <p>Внутренний ИИ</p>
+                      <p>Демонстрация экрана</p>
+                      <p>Конструктор сайтов с бесплатным хостингом</p>
+                      <p>Контакт-центр - интегрирующий все каналы  заказов в единую систему управления.</p>
+                      <p>Календарь для каждого сотрудника для планирования мероприятий</p>
+                      <p>Виртуальный отдел управления персоналом</p>
+                      <p>Организационная структура компании</p>
+                      <p>База знаний компании с возможностью ограничить права доступа</p>
+                      <p>Чек-ин на работе с геопозицией</p>
+                      <p>Автоматизация продаж через CRM</p>
+                      <p>Автогенерация счетов на оплату</p>
+                      <p>Автоматизация рабочих процессов через CRM</p>
+                      <p>Автогенерация счетов на оплату и КП</p>
+                      <p>Каталог товаров</p>
+                      <p>Виртуальные задачи с учетом времени, делегированием и пользовательскими полями</p>
+                      <p>Интеграция с почтой ( 7 дней )</p>
+                      <p>Складской учет</p>
+                      <p>Возможность пригласить внешних пользователей в рабочие группы ( Экстра-нет )</p>
+                      <p>Коэффициент полезности каждого сотрудника</p>
+                      <p>Работа с виртуальными пректами</p>
+                      <p>Bi- конструктор и конструктор отчетов</p>
+                      <p>Маркетинговый кабинет</p>
+                      <p>Задачи по подразделениям</p>
+                      <p>Гибкие методологии и управления командами ( Скрам )</p>
+                      <p>Бизнес-процессы и смарт-процессы</p>
+                      <p>Сквозная аналитика</p>
+                      <p>Создание и управление филиалами</p>
+                      <p>Интерпрайз-кластер  с ускорением до 10-ти раз</p>
+                    </div>
+              `,
   },
 ];
 
-play_sound.forEach((btn) => {
-  btn.addEventListener("click", function () {
-    let name = btn.getAttribute("data-name");
-    const audioPlayers = document.querySelectorAll("audio");
-    const thisPLayer = Array.from(audioPlayers).find(
-      (player) => player.getAttribute("data-name") === name
-    );
-    let playBtn = btn.querySelector(".play_button");
-    let pauseBtn = btn.querySelector(".pause_button");
-    if (thisPLayer.paused) {
-      audioPlayers.forEach((x) => {
-        x.pause();
-        play_sound.forEach((btn) => {
-          btn.querySelector(".play_button").style.opacity = 1;
-          btn.querySelector(".pause_button").style.opacity = 0;
-        });
-      });
-      thisPLayer.play();
-      playBtn.style.opacity = 0;
-      pauseBtn.style.opacity = 1;
-    } else {
-      thisPLayer.pause();
-      playBtn.style.opacity = 1;
-      pauseBtn.style.opacity = 0;
+document.addEventListener("DOMContentLoaded", function () {
+  //  ЭЛЕМЕНТ ДЛЯ ЗАДЕРЖКИ МЕЖДУ НАЖАТИЕМ КНОПОК
+  let ready = true;
+
+  // ТАРИФЫ
+  const toTarifsBtns = document.querySelectorAll(".to_tarifs-block");
+  // ДОП. БЛОКИ СЛЕВА
+  const leftSection = document.querySelectorAll(".slideIn_left");
+  const openLeftSection = document.querySelectorAll(".open_left_section");
+  const hideLeftSection = document.querySelectorAll(".hide_left_section");
+  const cases_all = document.querySelector(".cases_all");
+
+  // ПОПАП
+  const popup__contact_us = document.querySelector(".popup__contact_us");
+
+  // КОНСУЛЬТАЦИЯ
+  const consultation_Page = document.querySelector(".consultation");
+
+  // ПОЛИТИКА КОНФ.
+  const privacyPolicy_Page = document.querySelector(".privacy-policy");
+
+  //  ОБСЛУЖИВАНИЕ
+  const service_Page = document.querySelector(".service");
+
+  // КАРТОЧКИ ТАРИФА
+  const tarifsList = document.querySelector(".tarifs-block__list");
+
+  const tarifs_background = document.querySelector(".tarifs-block__background");
+
+  // ПЕРЕКЛЮЧАТЕЛЬ СЛАЙДОВ НА БЛОКЕ МОДУЛЕЙ
+  const toggler = document.querySelector(
+    ".modulesBlockSwiper-navigation__toggler"
+  );
+  // FAQ
+  const faq_list = document.querySelector(".faq__list");
+
+  // ПЕРЕХОД К ТАРИФАМ
+  toTarifsBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      mainSlider.moveTo(5);
+    });
+  });
+
+  // ОТКРЫТИЕ ТАРИФА КАК ПОПАП
+  function openPopup(item) {
+    let parentBlockPosition = item.offsetTop;
+    let popup = item.querySelector(".item__wrapper");
+    let content = item.querySelector(".item__header").nextElementSibling;
+
+    if (!tarifs_background.classList.contains("active")) {
+      tarifs_background.classList.add("active"); // включаем темный фон
+
+      // Поднимаем блок вверх
+      item.style.position = "static";
+      item.style.height = `${popup.offsetHeight}px`;
+      popup.style.position = "absolute";
+      popup.style.top = `${parentBlockPosition}px`;
+
+      setTimeout(() => {
+        popup.classList.add("active");
+        popup.style.top = "20px";
+      }, 20);
+
+      // Раскрываем блок
+      setTimeout(() => {
+        content.style.maxHeight = content.scrollHeight + "px";
+      }, 300);
+    }
+  }
+  popup__contact_us.addEventListener("click", (e) => {
+    let content = e.target.closest(".popup__contact_us__container");
+    let close = e.target.closest(".popup__contact_us--close");
+    if ((!content || close) && ready) {
+      ready = false;
+      popup__contact_us.classList.toggle("active");
+      setTimeout(() => {
+        ready = true;
+      }, 300);
     }
   });
-});
 
-// Находим контейнер слайдов
-const partnersSwiper_container = document.getElementById("partners_swiper");
-const partnersSwiper =
-  partnersSwiper_container.querySelector(".swiper-wrapper");
+  // Функция для закрытия блока
+  function closePopup(item) {
+    let parentBlockPosition = item.offsetTop;
+    let popup = item.querySelector(".item__wrapper");
+    let content = item.querySelector(".item__header").nextElementSibling;
 
-// Кэшируем все слайды в их первоначальном порядке
-const slides = Array.from(
-  partnersSwiper.getElementsByClassName("swiper-slide")
-);
+    if (tarifs_background.classList.contains("active")) {
+      // Сворачиваем блок
+      content.style.maxHeight = null;
 
-// Порядок слайдов при разрешении больше 525px
-const desktopOrder = [0, 1, 2, 3, 4];
+      // Опускаем блок вниз
+      setTimeout(() => {
+        popup.style.top = `${parentBlockPosition}px`;
+        tarifs_background.classList.remove("active");
+      }, 300);
 
-// Порядок слайдов при разрешении 525px и меньше
-const mobileOrder = [0, 2, 4, 1, 3];
+      setTimeout(() => {
+        popup.classList.remove("active");
+      }, 600);
+    }
+  }
 
-// Функция для изменения порядка слайдов
-function rearrangeSlides() {
-  const windowWidth = window.innerWidth;
+  // Обработчик кликов по элементам
 
-  // Очищаем контейнер слайдов
-  partnersSwiper.innerHTML = "";
+  tarifsList.addEventListener("click", (e) => {
+    let item = e.target.closest(".item");
+    if (item.id === "individual") return;
+    let licensesBtn = e.target.closest(".change-licenses-tarif");
+    const icon = item.querySelector(".plus-icon");
 
-  // Определяем порядок слайдов в зависимости от ширины экрана
-  const order = windowWidth > 525 ? desktopOrder : mobileOrder;
+    if (licensesBtn) {
+      document
+        .querySelector(".change-licenses-tarif.active")
+        .classList.remove("active");
+      let licensesWrapper = item.querySelector(".licenses-wrapper");
+      let itemMain = item.querySelector(".item__main");
+      let dataInfo = licensesBtn.getAttribute("data-name");
+      licensesBtn.classList.add("active");
+      const findedLicenses = licensesInfo.find((x) => x.name === dataInfo);
+      licensesWrapper.innerHTML = "";
+      licensesWrapper.innerHTML = findedLicenses.content;
+      licensesWrapper.style.maxHeight = licensesWrapper.scrollHeight + "px";
+      itemMain.style.maxHeight = itemMain.scrollHeight + "px";
+    } else if (item) {
+      icon.classList.toggle("active");
+      ready = false;
 
-  // Вставляем слайды в новом порядке
-  order.forEach((index) => {
-    partnersSwiper.appendChild(slides[index].cloneNode(true));
+      let content = item.querySelector(".item__header").nextElementSibling;
+
+      if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+
+      // icon.classList.toggle("active");
+      // ready = false;
+      // if (window.innerWidth >= 1200) {
+      //   !tarifs_background.classList.contains("active")
+      //     ? openPopup(item)
+      //     : closePopup(item);
+      // } else {
+      //   let content = item.querySelector(".item__header").nextElementSibling;
+
+      //   if (content.style.maxHeight) {
+      //     content.style.transition = ".7s";
+      //     content.style.maxHeight = null;
+      //   } else {
+      //     content.style.transition = "1s";
+      //     content.style.maxHeight = content.scrollHeight + "px";
+      //   }
+      // }
+
+      // setTimeout(() => {
+      //   ready = true;
+      // }, 500);
+    }
   });
-}
 
-// Отслеживаем изменение размера окна
-window.addEventListener("resize", rearrangeSlides);
+  const painBlockCard = document.querySelectorAll(".pain__card__header");
 
-// Запускаем перестановку при первой загрузке страницы
-window.addEventListener("load", rearrangeSlides);
+  painBlockCard.forEach((header) => {
+    header.addEventListener("click", () => {
+      const body = header.nextElementSibling;
+      const arrow = header.querySelector(".pain__arrow");
+      if (body.style.maxHeight) {
+        body.style.maxHeight = null;
+        arrow.classList.remove("active");
+      } else {
+        body.style.maxHeight = body.scrollHeight + "px";
+        arrow.classList.add("active");
+      }
+    });
+  });
+
+  const loadImages = (section) => {
+    const images = section.querySelectorAll("img[data-src]");
+
+    if (images) {
+      images.forEach((img) => {
+        img.setAttribute("src", img.getAttribute("data-src"));
+        img.removeAttribute("data-src");
+      });
+    }
+  };
+
+  // ДОБАВИТЬ АКТИВНЫЙ КЛАСС ДЛЯ ЛЕВОЙ СЕКЦИИ
+  const addClassToSection = (name) => {
+    switch (name) {
+      case "consultation":
+        loadImages(consultation_Page);
+        consultation_Page.classList.toggle("active");
+        break;
+      case "privacy-policy":
+        privacyPolicy_Page.classList.toggle("active");
+        break;
+      case "service":
+        loadImages(service_Page);
+        service_Page.classList.toggle("active");
+        break;
+      case "casesAll":
+        loadImages(cases_all);
+        cases_all.classList.toggle("active");
+        break;
+    }
+  };
+
+  // ОТКРЫТЬ СЕКЦИЮ
+  openLeftSection.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      let sectionName = btn.getAttribute("data-name");
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.disabled = false;
+      }, 500);
+      leftSection.forEach((section) => {
+        section.style.visibility = "visible";
+        section.style.opacity = "1";
+      });
+      addClassToSection(sectionName);
+    });
+  });
+
+  // ЗАКРЫТЬ СЕКЦИЮ
+  hideLeftSection.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      let sectionName = btn.getAttribute("data-name");
+      addClassToSection(sectionName);
+    });
+  });
+
+  // ОТКРЫТИЕ КАРТОЧЕК В FAQ
+  faq_list.addEventListener("click", (e) => {
+    const card = e.target.closest(".faq__card");
+    if (card) {
+      const main = card.querySelector(".faq__main");
+      const icon = card.querySelector(".plus-icon");
+      if (main.style.maxHeight) {
+        main.style.maxHeight = null;
+        icon.classList.toggle("active");
+      } else {
+        main.style.maxHeight = main.scrollHeight + "px";
+        icon.classList.toggle("active");
+      }
+    }
+  });
+
+  // const mainSlider = new fullpage("#main", {
+  //   scrollOverflow: true,
+  //   scrolloverflowmacstyle: false,
+  //   menu: "#menu",
+  //   anchors: ["1", "2", "3", "4", "5", "6", "7", "8"],
+  //   responsiveWidth: 1200,
+  // });
+
+  // СЛАЙДЕРЫ НА БЛОКЕ МОДУЛЕЙ
+  const implementationBlockSwiper = new Swiper("#implementationBlockSwiper", {
+    direction: "horizontal",
+    slidesPerView: 1,
+    spaceBetween: 30,
+
+    pagination: {
+      el: ".swiper-pagination",
+    },
+    breakpoints: {
+      526: {
+        slidesPerView: 5,
+      },
+    },
+  });
+
+  function animateCounters() {
+    const counters = document.querySelectorAll(".counter");
+    const duration = 500; // Длительность анимации в миллисекундах
+
+    counters.forEach((counter) => {
+      const target = +counter.getAttribute("data-target");
+      const format = counter.getAttribute("data-format");
+      const startTime = performance.now();
+
+      function updateCounter(currentTime) {
+        const elapsedTime = currentTime - startTime;
+        const progress = Math.min(elapsedTime / duration, 1);
+        let currentNumber = Math.floor(progress * target);
+
+        if (format === "million") {
+          currentNumber = currentNumber + " млн";
+        } else if (format === "percent") {
+          currentNumber = currentNumber + "%";
+        }
+
+        counter.textContent = currentNumber;
+
+        if (progress < 1) {
+          requestAnimationFrame(updateCounter);
+        }
+      }
+
+      requestAnimationFrame(updateCounter);
+    });
+  }
+
+  animateCounters();
+  const play_sound = document.querySelectorAll("button.case_with_review");
+
+  play_sound.forEach((btn) => {
+    btn.addEventListener("click", function () {
+      let name = btn.getAttribute("data-name");
+      const audioPlayers = document.querySelectorAll("audio");
+      const thisPLayer = Array.from(audioPlayers).find(
+        (player) => player.getAttribute("data-name") === name
+      );
+      let playBtn = btn.querySelector(".play_button");
+      let pauseBtn = btn.querySelector(".pause_button");
+      if (thisPLayer.paused) {
+        audioPlayers.forEach((x) => {
+          x.pause();
+          play_sound.forEach((btn) => {
+            btn.querySelector(".play_button").style.opacity = 1;
+            btn.querySelector(".pause_button").style.opacity = 0;
+          });
+        });
+        thisPLayer.play();
+        playBtn.style.opacity = 0;
+        pauseBtn.style.opacity = 1;
+      } else {
+        thisPLayer.pause();
+        playBtn.style.opacity = 1;
+        pauseBtn.style.opacity = 0;
+      }
+    });
+  });
+
+  // ЛОГИКА НУМЕРОВКИ ПРОБЛЕМ В БИТРИКСЕ
+  const painNumbers = document.querySelectorAll(".pain__number");
+
+  const painNumbers_URL = [
+    "https://static.tildacdn.com/tild3866-3735-4839-a539-313665653834/numbers-1.svg",
+    "https://static.tildacdn.com/tild6662-3964-4065-b663-373366386431/numbers-2.svg",
+    "https://static.tildacdn.com/tild3839-3237-4333-b364-396536646436/numbers-3.svg",
+    "https://static.tildacdn.com/tild3161-6361-4434-a437-353161373132/numbers-4.svg",
+    "https://static.tildacdn.com/tild6638-3331-4234-b636-353039353962/numbers-5.svg",
+    "https://static.tildacdn.com/tild3663-3131-4130-b831-363931656638/numbers-6.svg",
+    "https://static.tildacdn.com/tild6134-3834-4234-b635-646636353937/numbers-7.svg",
+    "https://static.tildacdn.com/tild6536-6565-4437-b865-353932656437/numbers-8.svg",
+  ];
+
+  painNumbers.forEach((num, index) => {
+    num.src = painNumbers_URL[index];
+  });
+});
