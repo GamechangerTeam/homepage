@@ -987,16 +987,6 @@ video {
   gap: 10px;
 }
 
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 50px;
-  background-color: black;
-  z-index: 1000;
-}
-
 .hero {
   background-color: black;
   position: relative;
