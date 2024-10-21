@@ -469,6 +469,7 @@ document.addEventListener("DOMContentLoaded", function () {
     btn.addEventListener("click", () => {
       let sectionName = btn.getAttribute("data-name");
       btn.disabled = true;
+      document.body.style.overflow = "hidden"
       setTimeout(() => {
         btn.disabled = false;
       }, 500);
@@ -485,6 +486,8 @@ document.addEventListener("DOMContentLoaded", function () {
     btn.addEventListener("click", () => {
       let sectionName = btn.getAttribute("data-name");
       addClassToSection(sectionName);
+      document.body.style.overflow = "auto"
+
     });
   });
 

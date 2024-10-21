@@ -189,7 +189,7 @@ $grayGradient: linear-gradient(
   transition: 0.3s;
   color: white;
   font-size: 20px;
-  padding: 0 24px;
+  padding: 12px 24px;
   height: 60px;
   &:hover {
     background-color: white;
@@ -201,7 +201,7 @@ $grayGradient: linear-gradient(
   }
 
   @include mobile() {
-    height: 60px !important;
+    height: auto;
   }
 
   svg {
@@ -1302,7 +1302,7 @@ video {
 
     @include tablet() {
       display: grid;
-      grid-template-rows: 1fr 1fr;
+      // grid-template-rows: 1fr 1fr;
     }
     @include mobile() {
       gap: 16px;
@@ -2080,6 +2080,12 @@ video {
             height: 1px;
           }
         }
+      }
+    }
+
+    #individual {
+      .pain__arrow {
+        rotate: -90deg;
       }
     }
   }
