@@ -401,6 +401,7 @@ ul {
   font-family: "Montserrat", sans-serif;
   margin: 0;
   -webkit-tap-highlight-color: transparent;
+  scroll-behavior: smooth;
 }
 
 @include tablet {
@@ -1262,10 +1263,10 @@ video {
 
       span {
         &:first-child {
-          font-size: 32px;
+          font-size: 64px;
           font-weight: 600;
           @include tablet() {
-            // font-size: 64px;
+            font-size: 32px;
           }
         }
         &:last-child {
@@ -3655,6 +3656,7 @@ video {
     border-radius: 8px;
     padding: 5px;
     width: fit-content;
+    cursor: pointer;
     &.active {
       scale: 0.9;
       a {

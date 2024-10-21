@@ -172,6 +172,7 @@ ul::-webkit-scrollbar-thumb:active {
   font-family: "Montserrat", sans-serif;
   margin: 0;
   -webkit-tap-highlight-color: transparent;
+  scroll-behavior: smooth;
 }
 
 @media (max-width: 768px) {
@@ -1107,8 +1108,13 @@ video {
   }
 }
 .hero__statistics__card span:first-child {
-  font-size: 32px;
+  font-size: 64px;
   font-weight: 600;
+}
+@media (max-width: 768px) {
+  .hero__statistics__card span:first-child {
+    font-size: 32px;
+  }
 }
 .hero__statistics__card span:last-child {
   opacity: 0.6;
@@ -4117,6 +4123,7 @@ wi .tarifs-block .open_left_section:hover {
   padding: 5px;
   width: -moz-fit-content;
   width: fit-content;
+  cursor: pointer;
 }
 .right_navigation li.active {
   scale: 0.9;
