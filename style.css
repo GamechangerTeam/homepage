@@ -15,13 +15,13 @@
 
 .glow-on-hover:before {
   content: "";
-  background: linear-gradient(to right, #04d404 4.77%, #026e02 94.98%);
+  background: linear-gradient(to right, #04d404 20%, #4fff4f 94.98%);
   position: absolute;
   top: 0;
   left: 0;
   background-size: 400%;
   z-index: -1;
-  filter: blur(1px);
+  filter: blur(3px);
   width: 100%;
   height: 100%;
   animation: glowing 20s linear infinite;
@@ -1304,7 +1304,7 @@ video {
   }
 }
 .pain__number {
-  height: 100px;
+  height: 75px;
 }
 @media (max-width: 768px) {
   .pain__number {
@@ -1339,12 +1339,7 @@ video {
   gap: 5px;
 }
 .pain h4 span {
-  font-size: 50px;
-}
-@media (max-width: 960px) {
-  .pain h4 span {
-    font-size: 36px;
-  }
+  font-size: 30px;
 }
 @media (max-width: 525px) {
   .pain h4 span {
@@ -1364,13 +1359,16 @@ video {
 .pain__arrow.active {
   transform: rotateX(180deg);
 }
+.pain .glow-on-hover {
+  width: 90%;
+}
 .pain__card {
   border-radius: 20px;
   overflow: hidden;
   margin-top: 50px;
   position: relative;
-  width: 100% !important;
-  height: auto !important;
+  width: 100%;
+  height: auto;
 }
 @media (max-width: 768px) {
   .pain__card {
@@ -1381,7 +1379,7 @@ video {
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
-  gap: 50px;
+  gap: 20px;
   cursor: pointer;
   padding: 24px;
 }
