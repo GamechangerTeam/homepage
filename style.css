@@ -991,6 +991,9 @@ video {
   background-color: black;
   position: relative;
   overflow: hidden;
+  height: 100vh;
+  display: grid;
+  place-items: center;
 }
 .hero .container {
   display: flex;
@@ -999,7 +1002,7 @@ video {
   position: relative;
   border-radius: 10px;
   z-index: 1;
-  padding: 150px 20px 20px;
+  padding: 50px 20px;
 }
 @media (max-width: 525px) {
   .hero .container {
@@ -1043,6 +1046,7 @@ video {
 }
 .hero__pageLogo {
   max-width: 650px;
+  margin-right: 100px;
 }
 @media (max-width: 768px) {
   .hero__pageLogo {
@@ -1175,6 +1179,7 @@ video {
   font-size: 20px;
   padding: 0 24px;
   height: 60px;
+  display: none;
 }
 .hero__btns button:first-child:hover {
   background-color: white;
@@ -1280,13 +1285,22 @@ video {
 .pain li {
   display: grid;
   gap: 50px;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 150px 1fr;
 }
 @media (max-width: 768px) {
   .pain li {
     display: flex;
     flex-direction: column;
     gap: 20px;
+  }
+}
+.pain li:first-child .pain__number {
+  width: 125px;
+}
+@media (max-width: 768px) {
+  .pain li:first-child .pain__number {
+    margin: 0 auto;
+    width: auto;
   }
 }
 .pain__number {
@@ -4092,4 +4106,15 @@ wi .tarifs-block .open_left_section:hover {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.wow {
+  position: fixed;
+  width: 1px;
+  height: 100vh;
+  background-color: red;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
 }/*# sourceMappingURL=style.css.map */

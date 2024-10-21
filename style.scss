@@ -1160,6 +1160,9 @@ video {
   background-color: black;
   position: relative;
   overflow: hidden;
+  height: 100vh;
+  display: grid;
+  place-items: center;
 
   .container {
     display: flex;
@@ -1168,8 +1171,7 @@ video {
     position: relative;
     border-radius: 10px;
     z-index: 1;
-
-    padding: 150px 20px 20px;
+    padding:50px  20px;
 
     @include mobile() {
       padding: 50px 10px 10px;
@@ -1208,6 +1210,7 @@ video {
 
   &__pageLogo {
     max-width: 650px;
+    margin-right: 100px;
     @include tablet() {
       width: 80%;
     }
@@ -1313,6 +1316,7 @@ video {
       }
       &:first-child {
         @include grayBtn;
+        display: none;
       }
       &:nth-last-child(1) {
         @include greenBtn;
@@ -1369,22 +1373,33 @@ video {
   li {
     display: grid;
     gap: 50px;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 150px 1fr;
 
     @include tablet() {
       display: flex;
       flex-direction: column;
       gap: 20px;
     }
+
+    
+    &:first-child {
+      .pain__number {
+        width: 125px;
+        @include tablet() {
+          margin: 0 auto;
+          width: auto;
+        }
+      }
+    }
   }
 
   &__number {
-    // aspect-ratio: 1/1;
     height: 100px;
-
+    
     @include tablet() {
       height: 100px;
     }
+    
   }
   &__little-text {
     font-size: 24px;
@@ -3627,4 +3642,16 @@ video {
       transform: rotate(360deg);
     }
   }
+}
+
+
+.wow {
+  position: fixed;
+  width: 1px ;
+  height: 100vh;
+  background-color: red;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
 }
