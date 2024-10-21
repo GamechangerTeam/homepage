@@ -1562,6 +1562,16 @@ video {
   font-weight: 700;
   font-size: 24px;
 }
+@media (max-width: 768px) {
+  .tarifs-block h3 {
+    font-size: 20px;
+  }
+}
+@media (max-width: 525px) {
+  .tarifs-block h3 {
+    font-size: 18px;
+  }
+}
 .tarifs-block .container {
   display: grid;
   grid-template-rows: auto 1fr 50px;
@@ -1677,7 +1687,7 @@ video {
 }
 @media (max-width: 768px) {
   .tarifs-block ul .item__header {
-    grid-template: 1fr auto/1fr 36px;
+    grid-template: 1fr auto/1fr 32px;
     gap: 10px;
     padding: 16px;
   }
@@ -1784,6 +1794,14 @@ video {
 @media (max-width: 375px) {
   .tarifs-block ul .item__header__price--grid .item__header__price {
     padding: 0 10px;
+  }
+}
+.tarifs-block ul .item__header .pain__arrow {
+  display: block !important;
+}
+@media (max-width: 768px) {
+  .tarifs-block ul .item__header .pain__arrow {
+    grid-area: 1/2;
   }
 }
 .tarifs-block ul .item__header .plus-img {
@@ -1946,8 +1964,13 @@ video {
   }
 }
 @media (max-width: 768px) {
+  .tarifs-block ul #licenses .item__header__price {
+    grid-area: 2/1;
+  }
+}
+@media (max-width: 768px) {
   .tarifs-block ul #licenses .item__header {
-    grid-template-columns: 1fr 36px;
+    grid-template: 1fr auto/1fr 32px;
   }
 }
 .tarifs-block ul #licenses .licenses-wrapper {
