@@ -995,6 +995,11 @@ video {
   display: grid;
   place-items: center;
 }
+@media (max-width: 768px) {
+  .hero {
+    height: auto;
+  }
+}
 .hero .container {
   display: flex;
   flex-direction: column;
@@ -1047,6 +1052,11 @@ video {
 .hero__pageLogo {
   max-width: 650px;
   margin-right: 100px;
+}
+@media (max-width: 1200px) {
+  .hero__pageLogo {
+    margin-right: 0;
+  }
 }
 @media (max-width: 768px) {
   .hero__pageLogo {
@@ -1299,7 +1309,6 @@ video {
 }
 @media (max-width: 768px) {
   .pain li:first-child .pain__number {
-    margin: 0 auto;
     width: auto;
   }
 }
@@ -1308,7 +1317,10 @@ video {
 }
 @media (max-width: 768px) {
   .pain__number {
-    height: 100px;
+    width: auto;
+    height: 50px;
+    margin-right: auto;
+    padding-left: 14px;
   }
 }
 .pain__little-text {
@@ -1327,9 +1339,8 @@ video {
 @media (max-width: 768px) {
   .pain h3 {
     width: 90%;
-    margin: 0 auto;
-    font-weight: 700;
-    text-align: center;
+    padding-left: 14px;
+    font-size: 18px;
   }
 }
 .pain h4 {
@@ -1337,7 +1348,7 @@ video {
   justify-content: space-between;
   font-weight: 700;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
 }
 .pain h4 span {
   font-size: 30px;

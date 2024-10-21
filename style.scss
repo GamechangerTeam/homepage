@@ -1164,6 +1164,10 @@ video {
   display: grid;
   place-items: center;
 
+  @include tablet() {
+    height: auto;
+  }
+
   .container {
     display: flex;
     flex-direction: column;
@@ -1211,9 +1215,14 @@ video {
   &__pageLogo {
     max-width: 650px;
     margin-right: 100px;
+
+    @include pc {
+      margin-right: 0;
+    }
     @include tablet() {
       width: 80%;
     }
+
   }
 
   &__statistics {
@@ -1385,7 +1394,7 @@ video {
       .pain__number {
         width: 125px;
         @include tablet() {
-          margin: 0 auto;
+          // margin: 0 auto;
           width: auto;
         }
       }
@@ -1394,8 +1403,12 @@ video {
 
   &__number {
     height: 75px;
+    
     @include tablet() {
-      height: 100px;
+      width: auto;
+      height: 50px;
+      margin-right: auto;
+      padding-left: 14px;
     }
   }
   &__little-text {
@@ -1412,9 +1425,8 @@ video {
 
     @include tablet() {
       width: 90%;
-      margin: 0 auto;
-      font-weight: 700;
-      text-align: center;
+      padding-left: 14px;
+      font-size: 18px;
     }
   }
 
@@ -1423,7 +1435,7 @@ video {
     justify-content: space-between;
     font-weight: 700;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
     span {
       font-size: 30px;
       @include mobile() {
