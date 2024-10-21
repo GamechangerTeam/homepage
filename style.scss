@@ -1191,7 +1191,7 @@ video {
       }
 
       @include mobile() {
-        font-size: 16px;
+        font-size: 32px;
         margin-top: 5px;
       }
     }
@@ -1255,14 +1255,17 @@ video {
       padding: 0 10px;
       @include tablet() {
         padding: 0;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
       }
 
       span {
         &:first-child {
-          font-size: 76px;
+          font-size: 32px;
           font-weight: 600;
           @include tablet() {
-            font-size: 64px;
+            // font-size: 64px;
           }
         }
         &:last-child {

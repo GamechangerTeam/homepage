@@ -1027,7 +1027,7 @@ video {
 }
 @media (max-width: 525px) {
   .hero .container h1 {
-    font-size: 16px;
+    font-size: 32px;
     margin-top: 5px;
   }
 }
@@ -1101,16 +1101,14 @@ video {
 @media (max-width: 768px) {
   .hero__statistics__card {
     padding: 0;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
   }
 }
 .hero__statistics__card span:first-child {
-  font-size: 76px;
+  font-size: 32px;
   font-weight: 600;
-}
-@media (max-width: 768px) {
-  .hero__statistics__card span:first-child {
-    font-size: 64px;
-  }
 }
 .hero__statistics__card span:last-child {
   opacity: 0.6;
