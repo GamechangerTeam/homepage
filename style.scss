@@ -1591,6 +1591,10 @@ video {
     @include grayBtn();
     display: grid;
     place-items: center;
+
+    @include mobile() {
+      font-size: 16px !important;
+    }
   }
 }
 
