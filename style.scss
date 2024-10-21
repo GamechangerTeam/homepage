@@ -1470,9 +1470,9 @@ video {
       padding: 24px;
 
       &--bitrix-text {
-        font-size: 32px !important;
+        font-size: 30px !important;
         @include pc() {
-          font-size: 24px !important;
+          font-size: 20px !important;
         }
       }
 

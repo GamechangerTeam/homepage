@@ -1385,11 +1385,11 @@ video {
   padding: 24px;
 }
 .pain__card__header--bitrix-text {
-  font-size: 32px !important;
+  font-size: 30px !important;
 }
 @media (max-width: 1200px) {
   .pain__card__header--bitrix-text {
-    font-size: 24px !important;
+    font-size: 20px !important;
   }
 }
 @media (max-width: 960px) {
