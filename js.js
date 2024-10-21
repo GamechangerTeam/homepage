@@ -363,7 +363,9 @@ document.addEventListener("DOMContentLoaded", function () {
     let item = e.target.closest(".item");
     if (item.id === "individual") return;
     let licensesBtn = e.target.closest(".change-licenses-tarif");
-    const icon = item.querySelector(".plus-icon");
+    // const icon = item.querySelector(".plus-icon");
+    const icon = item.querySelector(".pain__arrow");
+
 
     if (licensesBtn) {
       document
