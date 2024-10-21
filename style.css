@@ -1363,6 +1363,11 @@ video {
 .pain .glow-on-hover {
   width: 90%;
 }
+@media (max-width: 768px) {
+  .pain .glow-on-hover {
+    width: 100%;
+  }
+}
 .pain__card {
   border-radius: 20px;
   overflow: hidden;

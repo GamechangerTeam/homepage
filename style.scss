@@ -1447,6 +1447,9 @@ video {
 
   .glow-on-hover {
     width: 90%;
+    @include tablet() {
+      width: 100%;
+    }
   }
 
   &__card {
