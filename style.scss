@@ -1415,6 +1415,7 @@ video {
       padding-left: 14px;
     }
   }
+  
   &__little-text {
     font-size: 24px;
     color: #808080;
@@ -1548,28 +1549,13 @@ video {
       padding: 0 48px 24px;
       p {
         font-size: 20px;
-        font-weight: 700;
+        font-weight: 900;
+        line-height: 28px;
         @include tablet() {
           font-size: 20px;
         }
       }
-      .pain__days {
-        padding: 5px 10px;
-        position: relative;
-        isolation: isolate;
-        &::before {
-          content: "";
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          transform: translate(-50%, -50%);
-          background-color: #04d404;
-          border-radius: 50%;
-          width: 30px;
-          height: 30px;
-          z-index: -1;
-        }
-      }
+
 
       button {
         @include grayBtn();
@@ -1594,6 +1580,40 @@ video {
 
     @include mobile() {
       font-size: 16px !important;
+    }
+  }
+
+
+  &__days {
+    padding: 5px 10px;
+    position: relative;
+    isolation: isolate;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #04d404;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      z-index: -1;
+    }
+  }
+
+  &__oneMan {
+    padding: 0 0 20px 38px;
+    position: relative;
+    isolation: isolate;
+    color: #808080;
+    font-size: 24px !important;
+    &::before {
+      all: unset !important;
+    }
+
+    .green_text {
+      font-weight: 700 !important;
     }
   }
 }
