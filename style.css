@@ -1576,6 +1576,35 @@ video {
   font-weight: 700 !important;
 }
 
+.xyi li {
+  gap: 0px 50px;
+}
+.xyi li .pain__block {
+  grid-column-start: 2;
+}
+.xyi li .pain__card {
+  margin: 0;
+}
+@media (max-width: 768px) {
+  .xyi li {
+    display: grid;
+    grid-template: auto auto/auto 1fr;
+    gap: 40px 20px;
+    align-items: center;
+  }
+  .xyi li h3 {
+    padding: 0;
+  }
+  .xyi li .pain__block {
+    grid-column-start: 2 span;
+  }
+}
+@media (max-width: 525px) {
+  .xyi .pain__number {
+    height: 32px;
+  }
+}
+
 .tarifs-block {
   background-color: black;
 }

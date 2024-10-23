@@ -1223,7 +1223,6 @@ video {
     @include tablet() {
       width: 80%;
     }
-
   }
 
   &__statistics {
@@ -1407,7 +1406,7 @@ video {
 
   &__number {
     height: 75px;
-    
+
     @include tablet() {
       width: auto;
       height: 50px;
@@ -1415,7 +1414,7 @@ video {
       padding-left: 14px;
     }
   }
-  
+
   &__little-text {
     font-size: 24px;
     color: #808080;
@@ -1556,7 +1555,6 @@ video {
         }
       }
 
-
       button {
         @include grayBtn();
         @include mobile() {
@@ -1582,7 +1580,6 @@ video {
       font-size: 16px !important;
     }
   }
-
 
   &__days {
     padding: 5px 10px;
@@ -1614,6 +1611,39 @@ video {
 
     .green_text {
       font-weight: 700 !important;
+    }
+  }
+}
+
+.xyi {
+  li {
+    // display: grid !important;
+    // grid-template: auto auto / 150px 1fr ;
+    gap: 0px 50px;
+    .pain__block {
+      grid-column-start: 2;
+    }
+
+    .pain__card {
+      margin: 0;
+    }
+    @include tablet() {
+      display: grid;
+      grid-template: auto auto / auto 1fr;
+      gap: 40px 20px;
+      align-items: center;
+      h3 {
+        padding: 0;
+      }
+      .pain__block {
+        grid-column-start: 2 span;
+      }
+    }
+  }
+
+  @include mobile() {
+    .pain__number {
+      height: 32px;
     }
   }
 }
@@ -1746,7 +1776,6 @@ video {
           @include tablet() {
             grid-area: 1/1;
           }
-
         }
 
         &__price {
@@ -1972,7 +2001,6 @@ video {
 
         @include tablet() {
           grid-template: 1fr auto / 1fr 32px;
-
         }
       }
       .licenses-wrapper {
