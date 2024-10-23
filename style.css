@@ -1297,14 +1297,26 @@ video {
 }
 .pain li {
   display: grid;
-  gap: 50px;
   grid-template-columns: 150px 1fr;
+  gap: 0px 50px;
+}
+.pain li .pain__block {
+  grid-column-start: 2;
 }
 @media (max-width: 768px) {
   .pain li {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    display: grid;
+    grid-template: auto auto/auto 1fr;
+    gap: 20px 20px;
+    align-items: center;
+  }
+  .pain li .pain__block {
+    grid-column-start: 2 span;
+  }
+}
+@media (max-width: 525px) {
+  .pain li .pain__number {
+    height: 32px;
   }
 }
 .pain li:first-child .pain__number {
@@ -1323,7 +1335,6 @@ video {
     width: auto;
     height: 50px;
     margin-right: auto;
-    padding-left: 14px;
   }
 }
 .pain__little-text {
@@ -1342,7 +1353,6 @@ video {
 @media (max-width: 768px) {
   .pain h3 {
     width: 90%;
-    padding-left: 14px;
     font-size: 18px;
   }
 }
@@ -1385,15 +1395,9 @@ video {
 .pain__card {
   border-radius: 20px;
   overflow: hidden;
-  margin-top: 30px;
   position: relative;
   width: 100%;
   height: auto;
-}
-@media (max-width: 768px) {
-  .pain__card {
-    margin-top: 30px;
-  }
 }
 .pain__card__header {
   display: grid;
@@ -1574,35 +1578,6 @@ video {
 }
 .pain__oneMan .green_text {
   font-weight: 700 !important;
-}
-
-.xyi li {
-  gap: 0px 50px;
-}
-.xyi li .pain__block {
-  grid-column-start: 2;
-}
-.xyi li .pain__card {
-  margin: 0;
-}
-@media (max-width: 768px) {
-  .xyi li {
-    display: grid;
-    grid-template: auto auto/auto 1fr;
-    gap: 40px 20px;
-    align-items: center;
-  }
-  .xyi li h3 {
-    padding: 0;
-  }
-  .xyi li .pain__block {
-    grid-column-start: 2 span;
-  }
-}
-@media (max-width: 525px) {
-  .xyi .pain__number {
-    height: 32px;
-  }
 }
 
 .tarifs-block {
@@ -1948,6 +1923,11 @@ video {
   top: 10px;
   left: -16px;
 }
+@media (max-width: 768px) {
+  .tarifs-block ul .item__main__content p {
+    font-size: 16px;
+  }
+}
 .tarifs-block ul .item__main .open_left_section {
   background-color: #050505;
   border: 1px solid #292929;
@@ -1978,6 +1958,7 @@ video {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 10px;
 }
 @media (max-width: 525px) {
   .tarifs-block ul .item__footer {
