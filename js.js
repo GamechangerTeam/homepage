@@ -361,6 +361,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   tarifsList?.addEventListener("click", (e) => {
     let item = e.target.closest(".item");
+    let itemHeader = e.target.closest(".item__header");
     if (item.id === "individual") return;
     let licensesBtn = e.target.closest(".change-licenses-tarif");
     // const icon = item.querySelector(".plus-icon");
@@ -380,7 +381,7 @@ document.addEventListener("DOMContentLoaded", function () {
       licensesWrapper.innerHTML = findedLicenses.content;
       licensesWrapper.style.maxHeight = licensesWrapper.scrollHeight + "px";
       itemMain.style.maxHeight = itemMain.scrollHeight + "px";
-    } else if (item) {
+    } else if (itemHeader) {
       icon.classList.toggle("active");
       ready = false;
 
