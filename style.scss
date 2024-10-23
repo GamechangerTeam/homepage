@@ -2188,6 +2188,7 @@ video {
       flex-direction: column;
     }
     .onlyBtn {
+      @include greenBtn();
       justify-content: center;
       width: fit-content;
       margin: 0 auto;
