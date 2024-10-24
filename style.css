@@ -2183,6 +2183,11 @@ video {
     height: 1px;
   }
 }
+.tarifs-block ul #licenses .open_left_section {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-left: auto;
+}
 .tarifs-block ul #individual {
   font-size: 16px;
   padding: 0;
