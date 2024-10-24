@@ -1474,7 +1474,7 @@ video {
 }
 @media (max-width: 768px) {
   .pain__card__footer p {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 .pain__card__footer button {
@@ -1571,13 +1571,23 @@ video {
   position: relative;
   isolation: isolate;
   color: #808080;
-  font-size: 24px !important;
+  font-size: 20px;
 }
 .pain__oneMan::before {
   all: unset !important;
 }
 .pain__oneMan .green_text {
   font-weight: 700 !important;
+}
+@media (max-width: 768px) {
+  .pain__oneMan {
+    font-size: 18px;
+  }
+}
+@media (max-width: 525px) {
+  .pain__oneMan {
+    padding: 0 0 20px 32px;
+  }
 }
 
 .tarifs-block {
