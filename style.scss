@@ -486,9 +486,8 @@ h3 {
 
 h4 {
   font-size: 24px;
-
   @include tablet() {
-    font-size: 16px;
+    font-size: 10px;
   }
 }
 
@@ -531,7 +530,7 @@ ul {
   @include mobile() {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 100px;
   }
 }
 
@@ -1161,16 +1160,6 @@ video {
 }
 // ОСНОВНОЕ ОСНОВНОЕ ОСНОВНОЕ ОСНОВНОЕ ОСНОВНОЕ ОСНОВНОЕ ОСНОВНОЕ ОСНОВНОЕ ОСНОВНОЕ ОСНОВНОЕ ОСНОВНОЕ ОСНОВНОЕ ОСНОВНОЕ ОСНОВНОЕ ОСНОВНОЕ ОСНОВНОЕ ОСНОВНОЕ ОСНОВНОЕ ОСНОВНОЕ ОСНОВНОЕ ОСНОВНОЕ
 
-
-@function calcFluidFontSize($f-min, $f-max, $v-min, $v-max) {
-  $k: ($f-max - $f-min)/($v-max - $v-min);
-  $b: $f-min - $k * $v-min;
-
-  $b: $b * 1px;
-
-  @return calc( #{$k} * 100vw + #{$b} );
-}
-
 .hero {
   background-color: black;
   position: relative;
@@ -1196,7 +1185,7 @@ video {
     padding: 50px 20px 50px;
 
     @include mobile() {
-      padding: 50px 10px 10px;
+      padding: 50px 10px 0px;
     }
 
     h1 {
@@ -1230,7 +1219,6 @@ video {
     }
   }
 
-
   &__textImg {
     display: flex;
     align-items: center;
@@ -1238,15 +1226,15 @@ video {
 
   &__pageLogo {
     width: 150px;
+    margin-right: 10px;
     @include pc {
       margin-right: 0;
     }
     @include tablet() {
       width: 100px;
-      
     }
     @include mobile() {
-      width: 50px;
+      width: 70px;
     }
   }
 
@@ -1263,7 +1251,7 @@ video {
       font-size: 60px !important;
     }
     @include mobile() {
-      font-size: 46px !important;
+      font-size: 42px !important;
     }
 
     @include mobile-min() {
@@ -1349,14 +1337,20 @@ video {
       align-items: center;
       display: flex;
       gap: 10px;
+      // justify-content: space-between;
       img {
-        width: 40px;
-        height: 40px;
+        width: 60px;
+        aspect-ratio: 1/1;
+        @media (max-width: 345px) {
+          width: 40px;
+        }
       }
       p {
         margin: 0 !important;
         text-align: left !important;
-        font-size: 13px !important;
+        @media (max-width: 345px) {
+          font-size: 13px !important;
+        }
       }
     }
     @include mobile() {
@@ -1455,6 +1449,18 @@ video {
 .pain {
   .container {
     position: relative;
+    @include mobile() {
+      &::before {
+        content: "";
+        position: absolute;
+        width: calc(100% - 20px);
+        height: 10px;
+        border-radius: 50px 50px 0 0;
+        border-top: 3px solid #eaeaea;
+        top: -20px;
+        left: 10px;
+      }
+    }
   }
 
   ul {
@@ -1463,7 +1469,7 @@ video {
     display: flex;
     flex-direction: column;
     @include mobile() {
-      margin-top: 50px;
+      margin-top: 20px;
       gap: 50px;
     }
   }
@@ -1479,7 +1485,7 @@ video {
     @include tablet() {
       display: grid;
       grid-template: auto auto / 1fr auto;
-      gap: 20px 20px;
+      gap: 10px 20px;
       align-items: center;
       .pain__block {
         grid-column-start: 2 span;
@@ -1506,18 +1512,30 @@ video {
     height: 75px;
     @include tablet() {
       grid-area: 1/2;
-
+      padding-right: 20px;
       width: auto;
-      height: 50px;
+      height: 30px;
       margin-right: auto;
     }
   }
 
-  &__little-text {
-    font-size: 24px;
-    color: #808080;
+  h2 {
+    font-weight: 900 !important;
     @include mobile() {
-      font-size: 18px;
+      font-size: 24px !important;
+      line-height: 20px;
+    }
+  }
+
+  &__little-text {
+    font-size: 22px;
+    color: #808080;
+    font-weight: 200;
+    color: #f5f5f5;
+    @include mobile() {
+      margin-top: 10px;
+      font-size: 14px;
+      display: block;
     }
   }
 
@@ -1526,7 +1544,8 @@ video {
     font-size: 24px;
 
     @include tablet() {
-      font-size: 18px;
+      padding-left: 20px;
+      font-size: 10px;
     }
   }
 
@@ -1552,12 +1571,17 @@ video {
   &__arrow {
     width: 32px;
     transition: 0.5s;
+    align-self: flex-end;
     &.active {
       transform: rotateX(180deg);
     }
   }
 
   .glow-on-hover {
+    all: unset;
+    &::before {
+      all: unset;
+    }
     width: 90%;
     @include tablet() {
       width: 100%;
@@ -1570,6 +1594,7 @@ video {
     position: relative;
     width: 100%;
     height: auto;
+    border: 1px solid #04d404;
 
     &__header {
       display: grid;
@@ -1775,12 +1800,13 @@ video {
     .item {
       width: 100%;
       position: relative;
-      @include glow-on-hover();
+      border: 1px solid #04d404;
+      border-radius: 20px;
       @include pc() {
         height: auto;
       }
       @include mobile-min() {
-        max-width: 300px;
+        // max-width: 300px;
       }
 
       &__wrapper {
@@ -2062,7 +2088,7 @@ video {
         all: unset;
       }
 
-      @include glow-blue();
+      border-color: #47ddff;
 
       .item__header {
         grid-template-columns: 48px 1fr auto 32px;
@@ -2316,7 +2342,7 @@ video {
 
     @include mobile() {
       padding: 30px 0;
-      gap: 40px;
+      gap: 50px;
     }
 
     @include mobile-mid() {

@@ -253,7 +253,7 @@ h4 {
 }
 @media (max-width: 768px) {
   h4 {
-    font-size: 16px;
+    font-size: 10px;
   }
 }
 
@@ -300,7 +300,7 @@ ul {
   #main {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 100px;
   }
 }
 
@@ -1025,7 +1025,7 @@ video {
 }
 @media (max-width: 525px) {
   .hero .container {
-    padding: 50px 10px 10px;
+    padding: 50px 10px 0px;
   }
 }
 .hero .container h1 {
@@ -1069,6 +1069,7 @@ video {
 }
 .hero__pageLogo {
   width: 150px;
+  margin-right: 10px;
 }
 @media (max-width: 1200px) {
   .hero__pageLogo {
@@ -1082,7 +1083,7 @@ video {
 }
 @media (max-width: 525px) {
   .hero__pageLogo {
-    width: 50px;
+    width: 70px;
   }
 }
 .hero__1c-bitrix {
@@ -1102,7 +1103,7 @@ video {
 }
 @media (max-width: 525px) {
   .hero__1c-bitrix {
-    font-size: 46px !important;
+    font-size: 42px !important;
   }
 }
 @media (max-width: 375px) {
@@ -1199,13 +1200,22 @@ video {
   gap: 10px;
 }
 .hero__mobilev li img {
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  aspect-ratio: 1/1;
+}
+@media (max-width: 345px) {
+  .hero__mobilev li img {
+    width: 40px;
+  }
 }
 .hero__mobilev li p {
   margin: 0 !important;
   text-align: left !important;
-  font-size: 13px !important;
+}
+@media (max-width: 345px) {
+  .hero__mobilev li p {
+    font-size: 13px !important;
+  }
 }
 @media (max-width: 525px) {
   .hero__mobilev {
@@ -1366,6 +1376,18 @@ video {
 .pain .container {
   position: relative;
 }
+@media (max-width: 525px) {
+  .pain .container::before {
+    content: "";
+    position: absolute;
+    width: calc(100% - 20px);
+    height: 10px;
+    border-radius: 50px 50px 0 0;
+    border-top: 3px solid #eaeaea;
+    top: -20px;
+    left: 10px;
+  }
+}
 .pain ul {
   margin-top: 80px;
   gap: 80px;
@@ -1374,7 +1396,7 @@ video {
 }
 @media (max-width: 525px) {
   .pain ul {
-    margin-top: 50px;
+    margin-top: 20px;
     gap: 50px;
   }
 }
@@ -1390,7 +1412,7 @@ video {
   .pain li {
     display: grid;
     grid-template: auto auto/1fr auto;
-    gap: 20px 20px;
+    gap: 10px 20px;
     align-items: center;
   }
   .pain li .pain__block {
@@ -1416,18 +1438,32 @@ video {
 @media (max-width: 768px) {
   .pain__number {
     grid-area: 1/2;
+    padding-right: 20px;
     width: auto;
-    height: 50px;
+    height: 30px;
     margin-right: auto;
   }
 }
+.pain h2 {
+  font-weight: 900 !important;
+}
+@media (max-width: 525px) {
+  .pain h2 {
+    font-size: 24px !important;
+    line-height: 20px;
+  }
+}
 .pain__little-text {
-  font-size: 24px;
+  font-size: 22px;
   color: #808080;
+  font-weight: 200;
+  color: #f5f5f5;
 }
 @media (max-width: 525px) {
   .pain__little-text {
-    font-size: 18px;
+    margin-top: 10px;
+    font-size: 14px;
+    display: block;
   }
 }
 .pain h3 {
@@ -1436,7 +1472,8 @@ video {
 }
 @media (max-width: 768px) {
   .pain h3 {
-    font-size: 18px;
+    padding-left: 20px;
+    font-size: 10px;
   }
 }
 .pain h4 {
@@ -1463,12 +1500,17 @@ video {
 .pain__arrow {
   width: 32px;
   transition: 0.5s;
+  align-self: flex-end;
 }
 .pain__arrow.active {
   transform: rotateX(180deg);
 }
 .pain .glow-on-hover {
+  all: unset;
   width: 90%;
+}
+.pain .glow-on-hover::before {
+  all: unset;
 }
 @media (max-width: 768px) {
   .pain .glow-on-hover {
@@ -1481,6 +1523,7 @@ video {
   position: relative;
   width: 100%;
   height: auto;
+  border: 1px solid #04d404;
 }
 .pain__card__header {
   display: grid;
@@ -1745,47 +1788,12 @@ video {
 .tarifs-block ul .item {
   width: 100%;
   position: relative;
-  border: none;
-  outline: none;
-  color: #fff;
-  background: #050505;
-  cursor: pointer;
-  position: relative;
-  border-radius: 20px;
-}
-.tarifs-block ul .item::after {
-  z-index: -1;
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #050505;
-  left: 0;
-  top: 0;
-  border-radius: 20px;
-}
-.tarifs-block ul .item::before {
-  content: "";
-  background: linear-gradient(to right, #04d404 4.77%, #026e02 94.98%);
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-size: 400%;
-  filter: blur(3px);
-  width: 100%;
-  height: 100%;
-  animation: glowing 20s linear infinite;
-  transition: opacity 0.3s ease-in-out;
+  border: 1px solid #04d404;
   border-radius: 20px;
 }
 @media (max-width: 1200px) {
   .tarifs-block ul .item {
     height: auto;
-  }
-}
-@media (max-width: 375px) {
-  .tarifs-block ul .item {
-    max-width: 300px;
   }
 }
 .tarifs-block ul .item__wrapper {
@@ -2094,41 +2102,10 @@ video {
   all: unset !important;
 }
 .tarifs-block ul #licenses {
-  border: none;
-  outline: none;
-  color: #fff;
-  background: #050505;
-  cursor: pointer;
-  position: relative;
-  border-radius: 20px;
+  border-color: #47ddff;
 }
 .tarifs-block ul #licenses::before, .tarifs-block ul #licenses::after {
   all: unset;
-}
-.tarifs-block ul #licenses::after {
-  z-index: -1;
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #050505;
-  left: 0;
-  top: 0;
-  border-radius: 20px;
-}
-.tarifs-block ul #licenses::before {
-  content: "";
-  background: linear-gradient(to right, rgba(71, 221, 255, 0.7960784314) 4.77%, rgba(71, 221, 255, 0.5882352941) 94.98%);
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-size: 400%;
-  filter: blur(2px);
-  width: 100%;
-  height: 100%;
-  animation: glowing 20s linear infinite;
-  transition: opacity 0.3s ease-in-out;
-  border-radius: 20px;
 }
 .tarifs-block ul #licenses .item__header {
   grid-template-columns: 48px 1fr auto 32px;
@@ -2438,7 +2415,7 @@ video {
 @media (max-width: 525px) {
   .implementation-block .container {
     padding: 30px 0;
-    gap: 40px;
+    gap: 50px;
   }
 }
 @media (max-width: 425px) {
