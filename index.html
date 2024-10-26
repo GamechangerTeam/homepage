@@ -29,12 +29,11 @@
     <link rel="stylesheet" href="style.css" />
     <script src="js.js" defer></script>
     <style>
-
       .cases-link {
-          display: none;
+        display: none;
       }
-      
-          .header {
+
+      .header {
         position: fixed;
         top: 0;
         left: 0;
@@ -209,7 +208,7 @@
           display: flex;
         }
       }
-      
+
       .burgerBtn {
         position: fixed;
         width: 30px;
@@ -227,7 +226,7 @@
           display: block;
         }
       }
-      
+
       .burgerBtn .icon-left {
         transition-duration: 0.5s;
         position: absolute;
@@ -238,7 +237,7 @@
         background-color: white;
         mix-blend-mode: difference;
       }
-      
+
       .burgerBtn .icon-left:before {
         transition-duration: 0.5s;
         position: absolute;
@@ -248,7 +247,7 @@
         content: "";
         top: -10px;
       }
-      
+
       .burgerBtn .icon-left:after {
         transition-duration: 0.5s;
         position: absolute;
@@ -258,11 +257,11 @@
         content: "";
         top: 10px;
       }
-      
+
       .burgerBtn .icon-left:hover {
         cursor: pointer;
       }
-      
+
       .burgerBtn .icon-right {
         transition-duration: 0.5s;
         position: absolute;
@@ -273,7 +272,7 @@
         background-color: white;
         left: 15px;
       }
-      
+
       .burgerBtn .icon-right:before {
         transition-duration: 0.5s;
         position: absolute;
@@ -283,7 +282,7 @@
         content: "";
         top: -10px;
       }
-      
+
       .burgerBtn .icon-right:after {
         transition-duration: 0.5s;
         position: absolute;
@@ -293,36 +292,36 @@
         content: "";
         top: 10px;
       }
-      
+
       .burgerBtn.open .icon-left {
         transition-duration: 0.5s;
         background: transparent;
       }
-      
+
       .burgerBtn.open .icon-left:before {
         transform: rotateZ(45deg) scaleX(1.4) translate(2px, 2px);
       }
-      
+
       .burgerBtn.open .icon-left:after {
         transform: rotateZ(-45deg) scaleX(1.4) translate(2px, -2px);
       }
-      
+
       .burgerBtn.open .icon-right {
         transition-duration: 0.5s;
         background: transparent;
       }
-      
+
       .burgerBtn.open .icon-right:before {
         transform: rotateZ(-45deg) scaleX(1.4) translate(-2px, 2px);
       }
-      
+
       .burgerBtn.open .icon-right:after {
         transform: rotateZ(45deg) scaleX(1.4) translate(-2px, -2px);
       }
-      
+
       .burgerBtn:hover {
         cursor: pointer;
-      } 
+      }
       .copy_message {
         font-family: "Montserrat", sans-serif;
         position: fixed;
@@ -330,7 +329,7 @@
         right: 80px;
         border: 1px solid white;
         -webkit-backdrop-filter: blur(10px);
-                backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
         padding: 6px;
         font-size: 14px;
         font-weight: 600;
@@ -356,7 +355,7 @@
           top: 135px;
         }
       }
-      </style>
+    </style>
   </head>
 
   <body>
@@ -396,7 +395,6 @@
             <li><a href="/hr">HR</a></li>
             <li><a href="/construction">Строительство</a></li>
           </ul>
-          
         </li>
         <li class="cases-link">
           <a href="#trustUs_container">Кейсы</a>
@@ -448,22 +446,26 @@
       </div>
       <div class="copy_message">Номер скопирован!</div>
     </header>
-    
-    
-<div class="burgerBtn">
-  <div class="icon-left"></div>
-  <div class="icon-right"></div>
-</div>
 
+    <div class="burgerBtn">
+      <div class="icon-left"></div>
+      <div class="icon-right"></div>
+    </div>
 
     <main id="main">
       <div class="section hero">
         <div class="container">
-          <img
-            src="https://static.tildacdn.com/tild3164-3137-4031-a530-663936363862/1c-Bitrix24_integrat.png"
-            alt="быстрая интеграция 1с и Битрикс24 "
-            class="hero__pageLogo"
-          />
+          <div class="hero__textImg">
+            <img
+              src="https://static.tildacdn.com/tild6135-6161-4135-b561-623536353232/1C_Logo.gif"
+              alt="быстрая интеграция 1с и Битрикс24 "
+              class="hero__pageLogo"
+            />
+            <p class="hero__1c-bitrix">
+              1С•БИТРИКС
+
+            </p>
+          </div>
           <h1>для HR</h1>
           <p>
             Используйте платформу, которая вывела более 10 миллионов компаний на
@@ -495,22 +497,54 @@
               <span>увеличение эффективности</span>
             </div>
           </div>
+          <ul class="hero__mobilev">
+          <li>
+            <img src="https://static.tildacdn.com/tild3439-6261-4764-b135-316433333634/Frame_45.svg" alt="crm#1 icon svg">
+            <p>
+              <b>
+                CRM #1
+              </b>
+              во всех странах СНГ
+            </p>
+          </li>
+          <li>
+          <img src="https://static.tildacdn.com/tild6436-3832-4233-a339-666536303339/icon2.svg" alt="easycontrol icon svg">
+          <p>
+            <b>
+              Легкое
+            </b>
+            управление бизнесом
+          </p>
+          </li>
+          <li>
+            <img src="https://static.tildacdn.com/tild3661-6138-4031-b830-393963376463/manicon3.svg" alt="totalcontrol icon svg">
+            <p>
+              <b>
+                Полный
+              </b>
+              контроль сотрудников
+            </p>
+          </li>
+          </ul>
           <div class="hero__btns">
-            <button class="hero__calculator-btn">
-              Совсем скоро!
+            <button class="open_left_section" data-name="consultation">
+              Получить звонок
               <img
-                src="https://static.tildacdn.com/tild3232-3235-4432-b131-336165636163/calculator.svg"
+                src="https://static.tildacdn.com/tild3632-6635-4636-a462-623738303936/phone.svg"
                 alt="calculator icon svg"
               />
             </button>
-            <button class="open_left_section" data-name="consultation">
-              Получить консультацию
-
+            <a
+              href="https://wa.me/77752214996?text=Здравствуйте%2C+хочу+уточнить+детали"
+              target="_blank"
+            >
+            Написать
               <img
-                src="https://static.tildacdn.com/tild3536-3965-4430-a239-383035353738/support.svg"
+                src="https://static.tildacdn.com/tild3930-6636-4165-a566-343731393465/dialog_svg.svg"
                 alt="support icon svg"
               />
-            </button>
+            </a
+            >
           </div>
           <img
             src="https://static.tildacdn.com/tild3064-3464-4339-a436-326630346633/Gamechanger_-logo.png"
@@ -529,16 +563,14 @@
               Каждый тариф оплачивается только один раз.
             </span>
           </h2>
-      <ul>
+          <ul>
             <li>
               <img
                 src="https://static.tildacdn.com/tild3866-3735-4839-a539-313665653834/numbers-1.svg"
                 class="pain__number"
                 alt=""
               />
-                <h3>
-                  Подбор и найм персонала.
-                </h3>
+              <h3>Подбор и найм персонала.</h3>
               <div class="pain__block">
                 <div class="glow-on-hover">
                   <div class="pain__card">
@@ -556,7 +588,9 @@
                       <div class="pain__card__text-wrapper">
                         <p>Разработка вакансий и их размещение;</p>
                         <p>Проведение собеседований и оценка кандидатов;</p>
-                        <p>Организация процесса найма и оформления сотрудников.</p>
+                        <p>
+                          Организация процесса найма и оформления сотрудников.
+                        </p>
                       </div>
                       <div class="pain__card__footer">
                         <p>внедрение <span class="pain__days">2</span> дня</p>
@@ -578,15 +612,14 @@
                 class="pain__number"
                 alt=""
               />
-                <h3>
-                  Адаптация и обучение сотрудников.
-                </h3>
+              <h3>Адаптация и обучение сотрудников.</h3>
               <div class="pain__block">
                 <div class="glow-on-hover">
                   <div class="pain__card">
                     <div class="pain__card__header">
                       <h4>
-                        Комплексная система обучения Битрикс24 <span>100&nbsp;000₸</span>
+                        Комплексная система обучения Битрикс24
+                        <span>100&nbsp;000₸</span>
                       </h4>
                       <img
                         src="https://static.tildacdn.com/tild3339-6235-4634-a331-626230363866/down_arrow.svg"
@@ -595,16 +628,27 @@
                       />
                     </div>
                     <div class="pain__card__body">
-                      <p class="pain__oneMan"><span class="green_text">*</span>Цена указана за одну должность</p>
+                      <p class="pain__oneMan">
+                        <span class="green_text">*</span>Цена указана за одну
+                        должность
+                      </p>
 
                       <div class="pain__card__text-wrapper">
-
-                        <p>Введение новых сотрудников в курс дела (онбординг);</p>
-                        <p>Поэтапное обучение для работы в вашей компании (текст, видео, аудиоматериалы);</p>
+                        <p>
+                          Введение новых сотрудников в курс дела (онбординг);
+                        </p>
+                        <p>
+                          Поэтапное обучение для работы в вашей компании (текст,
+                          видео, аудиоматериалы);
+                        </p>
                         <p>Тестирование и оценка кандидатов.</p>
                       </div>
                       <div class="pain__card__footer">
-                        <p>внедрение <span class="pain__days">5</span> дней <br> Скидки при большем количестве должностей</p>
+                        <p>
+                          внедрение <span class="pain__days">5</span> дней
+                          <br />
+                          Скидки при большем количестве должностей
+                        </p>
                         <button
                           class="open_left_section"
                           data-name="consultation"
@@ -623,15 +667,14 @@
                 class="pain__number"
                 alt=""
               />
-                <h3>
-                  Повышение квалификации.
-                </h3>
+              <h3>Повышение квалификации.</h3>
               <div class="pain__block">
                 <div class="glow-on-hover">
                   <div class="pain__card">
                     <div class="pain__card__header">
                       <h4>
-                        Система для профессионального роста Битрикс24 <span>100&nbsp;000₸</span>
+                        Система для профессионального роста Битрикс24
+                        <span>100&nbsp;000₸</span>
                       </h4>
                       <img
                         src="https://static.tildacdn.com/tild3339-6235-4634-a331-626230363866/down_arrow.svg"
@@ -641,7 +684,10 @@
                     </div>
                     <div class="pain__card__body">
                       <div class="pain__card__text-wrapper">
-                        <p> Постепенное обучение новым навыкам с помощью мультимедийных материалов;</p>
+                        <p>
+                          Постепенное обучение новым навыкам с помощью
+                          мультимедийных материалов;
+                        </p>
                         <p>Проведение тестирования и оценка результатов.</p>
                       </div>
                       <div class="pain__card__footer">
@@ -664,15 +710,14 @@
                 class="pain__number"
                 alt=""
               />
-                <h3>
-                  Управление производительностью.
-                </h3>
+              <h3>Управление производительностью.</h3>
               <div class="pain__block">
                 <div class="glow-on-hover">
                   <div class="pain__card">
                     <div class="pain__card__header">
                       <h4>
-                        Система управления производительностью Битрикс24 <span>150&nbsp;000₸</span>
+                        Система управления производительностью Битрикс24
+                        <span>150&nbsp;000₸</span>
                       </h4>
                       <img
                         src="https://static.tildacdn.com/tild3339-6235-4634-a331-626230363866/down_arrow.svg"
@@ -684,7 +729,9 @@
                       <div class="pain__card__text-wrapper">
                         <p>Быстрое утверждение всех решений и документации;</p>
                         <p>Оценка и анализ производительности сотрудников;</p>
-                        <p>Постановка целей и задач, отслеживание их выполнения.</p>
+                        <p>
+                          Постановка целей и задач, отслеживание их выполнения.
+                        </p>
                       </div>
                       <div class="pain__card__footer">
                         <p>внедрение <span class="pain__days">2</span> дня</p>
@@ -706,9 +753,7 @@
                 class="pain__number"
                 alt=""
               />
-                <h3>
-                  Кадровое делопроизводство.
-                </h3>
+              <h3>Кадровое делопроизводство.</h3>
               <div class="pain__block">
                 <div class="glow-on-hover">
                   <div class="pain__card">
@@ -724,9 +769,16 @@
                     </div>
                     <div class="pain__card__body">
                       <div class="pain__card__text-wrapper">
-                        <p>Ведение документации с автоматической генерацией трудовых договоров, приказов и личных дел;</p>
-                        <p>Управление рабочим временем и отпускными периодами;</p>
-                        <p>Бизнес-процессы для утверждения и обработки запросов.</p>
+                        <p>
+                          Ведение документации с автоматической генерацией
+                          трудовых договоров, приказов и личных дел;
+                        </p>
+                        <p>
+                          Управление рабочим временем и отпускными периодами;
+                        </p>
+                        <p>
+                          Бизнес-процессы для утверждения и обработки запросов.
+                        </p>
                       </div>
                       <div class="pain__card__footer">
                         <p>внедрение <span class="pain__days">3</span> дня</p>
@@ -748,9 +800,7 @@
                 class="pain__number"
                 alt=""
               />
-                <h3>
-                  Управление корпоративной культурой.
-                </h3>
+              <h3>Управление корпоративной культурой.</h3>
               <div class="pain__block">
                 <div class="glow-on-hover">
                   <div class="pain__card">
@@ -765,11 +815,17 @@
                       />
                     </div>
                     <div class="pain__card__body">
-                      <p class="pain__oneMan"><span class="green_text">*</span>Цена за обучение, функционал включен в стоимость тарифа</p>
+                      <p class="pain__oneMan">
+                        <span class="green_text">*</span>Цена за обучение,
+                        функционал включен в стоимость тарифа
+                      </p>
                       <div class="pain__card__text-wrapper">
                         <p>Структура компании, должностные инструкции;</p>
                         <p>База знаний, новостная лента, каналы и чаты;</p>
-                        <p>Календарь событий компании (организация мероприятий, повышающих вовлеченность сотрудников).</p>
+                        <p>
+                          Календарь событий компании (организация мероприятий,
+                          повышающих вовлеченность сотрудников).
+                        </p>
                       </div>
                       <div class="pain__card__footer">
                         <p>внедрение <span class="pain__days">3</span> дня</p>
@@ -791,15 +847,14 @@
                 class="pain__number"
                 alt=""
               />
-                <h3>
-                  Конфликт-менеджмент.
-                </h3>
+              <h3>Конфликт-менеджмент.</h3>
               <div class="pain__block">
                 <div class="glow-on-hover">
                   <div class="pain__card">
                     <div class="pain__card__header">
                       <h4>
-                        Система для внутренних вопросов Битрикс24 <span>100&nbsp;000₸</span>
+                        Система для внутренних вопросов Битрикс24
+                        <span>100&nbsp;000₸</span>
                       </h4>
                       <img
                         src="https://static.tildacdn.com/tild3339-6235-4634-a331-626230363866/down_arrow.svg"
@@ -832,15 +887,14 @@
                 class="pain__number"
                 alt=""
               />
-                <h3>
-                  HR-аналитика и планирование.
-                </h3>
+              <h3>HR-аналитика и планирование.</h3>
               <div class="pain__block">
                 <div class="glow-on-hover">
                   <div class="pain__card">
                     <div class="pain__card__header">
                       <h4>
-                        Комплексные BI-отчеты Битрикс24 <span>От 15&nbsp;000₸</span>
+                        Комплексные BI-отчеты Битрикс24
+                        <span>От 15&nbsp;000₸</span>
                       </h4>
                       <img
                         src="https://static.tildacdn.com/tild3339-6235-4634-a331-626230363866/down_arrow.svg"
@@ -850,7 +904,11 @@
                     </div>
                     <div class="pain__card__body">
                       <div class="pain__card__text-wrapper">
-                        <p>Все показатели фиксируются системой и могут быть представлены в кастомные дашборды и отчеты по вашему запросу.</p>
+                        <p>
+                          Все показатели фиксируются системой и могут быть
+                          представлены в кастомные дашборды и отчеты по вашему
+                          запросу.
+                        </p>
                       </div>
                       <div class="pain__card__footer">
                         <p>внедрение <span class="pain__days">1</span> день</p>
@@ -869,7 +927,6 @@
           </ul>
         </div>
       </div>
-
 
       <div class="section tarifs-block" id="tarifs-block">
         <div class="container">
@@ -1070,8 +1127,12 @@
                       </p>
                     </div>
                     <div class="item__main__content">
-                      <button class="open_left_section" data-name="consultation">Заказать</button>
-                 
+                      <button
+                        class="open_left_section"
+                        data-name="consultation"
+                      >
+                        Заказать
+                      </button>
                     </div>
                   </div>
                   <br />
@@ -1081,7 +1142,6 @@
           </ul>
         </div>
       </div>
-          
 
       <div class="section bitrix24-block">
         <div class="container">
@@ -1264,14 +1324,14 @@
           <ul>
             <li>
               <span class="green_text">50+</span>
-              <p>
-                реализованных кейсов
-              </p>
+              <p>реализованных кейсов</p>
             </li>
             <li>
               <span class="green_text">10+</span>
-              <p>авторских модуля для Битрикс24 были созданы нашими
-                разработчиками</p>
+              <p>
+                авторских модуля для Битрикс24 были созданы нашими
+                разработчиками
+              </p>
             </li>
 
             <li>

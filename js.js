@@ -455,14 +455,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const painNumbers = document.querySelectorAll(".pain__number");
 
   const painNumbers_URL = [
-    "https://static.tildacdn.com/tild3866-3735-4839-a539-313665653834/numbers-1.svg",
-    "https://static.tildacdn.com/tild6662-3964-4065-b663-373366386431/numbers-2.svg",
-    "https://static.tildacdn.com/tild3839-3237-4333-b364-396536646436/numbers-3.svg",
-    "https://static.tildacdn.com/tild3161-6361-4434-a437-353161373132/numbers-4.svg",
-    "https://static.tildacdn.com/tild6638-3331-4234-b636-353039353962/numbers-5.svg",
-    "https://static.tildacdn.com/tild3663-3131-4130-b831-363931656638/numbers-6.svg",
-    "https://static.tildacdn.com/tild6134-3834-4234-b635-646636353937/numbers-7.svg",
-    "https://static.tildacdn.com/tild6536-6565-4437-b865-353932656437/numbers-8.svg",
+    "https://static.tildacdn.com/tild3538-3363-4233-b632-313536313161/num1.svg",
+    "https://static.tildacdn.com/tild3466-3432-4536-b630-313734386666/num2.svg",
+    "https://static.tildacdn.com/tild6339-6366-4133-a335-383938323465/num3.svg",
+    "https://static.tildacdn.com/tild3533-3737-4862-a130-386439323039/num4.svg",
+    "https://static.tildacdn.com/tild6165-3465-4561-b139-653037356135/num5.svg",
+    "https://static.tildacdn.com/tild3366-6165-4937-a564-616633356261/num6.svg",
+    "https://static.tildacdn.com/tild6562-3938-4535-a162-653030643261/num7.svg",
+    "https://static.tildacdn.com/tild3937-6230-4632-b662-636330366465/num8.svg",
   ];
 
   painNumbers.forEach((num, index) => {

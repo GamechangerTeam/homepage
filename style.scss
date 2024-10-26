@@ -202,6 +202,7 @@ $grayGradient: linear-gradient(
 
   @include mobile() {
     height: auto;
+    font-size: 16px;
   }
 
   svg {
@@ -239,8 +240,9 @@ $grayGradient: linear-gradient(
     padding: 16px 24px;
   }
   @include mobile() {
-    height: 50px !important;
-    font-size: 16px !important;
+    font-size: 16px;
+    height: auto !important;
+    width: fit-content !important;
   }
 }
 
@@ -503,7 +505,7 @@ a {
 }
 
 ul {
-  padding: 0 !important;
+  padding: 0;
 }
 
 #placeForMobileContent {
@@ -594,7 +596,6 @@ video {
 // #endregion
 
 .section {
-  // min-height: 100dvh;
   @include pc {
     min-height: auto !important;
   }
@@ -696,6 +697,9 @@ video {
     height: 100%;
     position: relative;
     z-index: 1;
+    @include mobile() {
+      padding: 10px;
+    }
   }
   &.active {
     animation-name: slideIn-left;
@@ -1157,13 +1161,26 @@ video {
 }
 // ОСНОВНОЕ ОСНОВНОЕ ОСНОВНОЕ ОСНОВНОЕ ОСНОВНОЕ ОСНОВНОЕ ОСНОВНОЕ ОСНОВНОЕ ОСНОВНОЕ ОСНОВНОЕ ОСНОВНОЕ ОСНОВНОЕ ОСНОВНОЕ ОСНОВНОЕ ОСНОВНОЕ ОСНОВНОЕ ОСНОВНОЕ ОСНОВНОЕ ОСНОВНОЕ ОСНОВНОЕ ОСНОВНОЕ
 
+
+@function calcFluidFontSize($f-min, $f-max, $v-min, $v-max) {
+  $k: ($f-max - $f-min)/($v-max - $v-min);
+  $b: $f-min - $k * $v-min;
+
+  $b: $b * 1px;
+
+  @return calc( #{$k} * 100vw + #{$b} );
+}
+
 .hero {
   background-color: black;
   position: relative;
   overflow: hidden;
-  height: 100vh;
   display: grid;
   place-items: center;
+
+  @media (min-height: 700px) {
+    height: 100vh;
+  }
 
   @include tablet() {
     height: auto;
@@ -1176,7 +1193,7 @@ video {
     position: relative;
     border-radius: 10px;
     z-index: 1;
-    padding: 50px 20px 0;
+    padding: 50px 20px 50px;
 
     @include mobile() {
       padding: 50px 10px 10px;
@@ -1213,15 +1230,44 @@ video {
     }
   }
 
-  &__pageLogo {
-    max-width: 650px;
-    margin-right: 100px;
 
+  &__textImg {
+    display: flex;
+    align-items: center;
+  }
+
+  &__pageLogo {
+    width: 150px;
     @include pc {
       margin-right: 0;
     }
     @include tablet() {
-      width: 80%;
+      width: 100px;
+      
+    }
+    @include mobile() {
+      width: 50px;
+    }
+  }
+
+  &__1c-bitrix {
+    font-size: 100px !important;
+    margin: 0 !important;
+    font-weight: 700 !important;
+
+    @include laptop() {
+      font-size: 80px !important;
+    }
+
+    @include tablet() {
+      font-size: 60px !important;
+    }
+    @include mobile() {
+      font-size: 46px !important;
+    }
+
+    @include mobile-min() {
+      font-size: 32px !important;
     }
   }
 
@@ -1242,6 +1288,7 @@ video {
       flex-direction: column;
       align-self: flex-start;
       gap: 10px;
+      display: none;
     }
 
     @media (max-height: 855px) and (max-width: 525px) {
@@ -1291,24 +1338,53 @@ video {
     }
   }
 
+  &__mobilev {
+    background-color: #050505;
+    padding: 12px;
+    border-radius: 10px;
+    display: none;
+    flex-direction: column;
+    gap: 16px;
+    li {
+      align-items: center;
+      display: flex;
+      gap: 10px;
+      img {
+        width: 40px;
+        height: 40px;
+      }
+      p {
+        margin: 0 !important;
+        text-align: left !important;
+        font-size: 13px !important;
+      }
+    }
+    @include mobile() {
+      display: flex;
+    }
+  }
   &__btns {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 36px;
     margin-top: 70px;
-    width: fit-content;
+    width: 100%;
 
     @include tablet() {
-      display: grid;
-      // grid-template-rows: 1fr 1fr;
     }
     @include mobile() {
-      gap: 16px;
+      margin-top: 25px;
+      gap: 19px;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      display: flex;
+      width: 100%;
+      justify-content: center;
     }
-    button {
+    button,
+    a {
       height: 100%;
-      width: max-content;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1320,19 +1396,29 @@ video {
         width: 24px;
       }
       @include tablet() {
-        width: 100% !important;
+        // font-size: ;
       }
       @include mobile() {
-        padding: 12px 18px !important;
-        font-size: 14px;
+        padding: 12px !important;
+        img {
+          width: 20px;
+        }
       }
-      &:first-child {
-        @include grayBtn;
-        display: none;
+
+      @include mobile-min() {
+        font-size: 10px !important;
       }
-      &:nth-last-child(1) {
-        @include greenBtn;
+    }
+    button {
+      @include grayBtn();
+      @include mobile() {
       }
+    }
+    a {
+      width: fit-content;
+      @include greenBtn();
+      // font-size: 10px !important;
+      // width: fit-content;s
     }
   }
 
@@ -1392,12 +1478,11 @@ video {
     }
     @include tablet() {
       display: grid;
-      grid-template: auto auto / auto 1fr;
+      grid-template: auto auto / 1fr auto;
       gap: 20px 20px;
       align-items: center;
       .pain__block {
         grid-column-start: 2 span;
-
       }
     }
 
@@ -1419,8 +1504,9 @@ video {
 
   &__number {
     height: 75px;
-
     @include tablet() {
+      grid-area: 1/2;
+
       width: auto;
       height: 50px;
       margin-right: auto;
@@ -1440,7 +1526,6 @@ video {
     font-size: 24px;
 
     @include tablet() {
-      width: 90%;
       font-size: 18px;
     }
   }
@@ -1485,7 +1570,6 @@ video {
     position: relative;
     width: 100%;
     height: auto;
-
 
     &__header {
       display: grid;
@@ -1916,7 +2000,7 @@ video {
             }
 
             @include tablet() {
-              font-size: 16px
+              font-size: 16px;
             }
           }
         }
