@@ -1330,7 +1330,7 @@ video {
 
   &__mobilev {
     background-color: #050505;
-    padding: 12px;
+    padding: 12px !important;
     border-radius: 10px;
     display: none;
     flex-direction: column;
@@ -1489,7 +1489,7 @@ video {
       display: grid;
       grid-template: auto auto / 1fr auto;
       gap: 10px 20px;
-      align-items: center;
+      align-items: flex-end;
       .pain__block {
         grid-column-start: 2 span;
       }
@@ -1883,7 +1883,8 @@ video {
           width: fit-content;
 
           @include tablet() {
-            grid-area: 1/1;
+            // grid-area: 1/1/1/2;
+            grid-column-start: 2 span;
           }
         }
 
@@ -1897,6 +1898,7 @@ video {
           }
           @include tablet() {
             font-size: 1.5rem;
+            grid-area: 2/1;
           }
         }
 
@@ -1966,8 +1968,9 @@ video {
 
         .pain__arrow {
           display: block !important;
+          position: static !important;
           @include tablet() {
-            grid-area: 1/2;
+            grid-area: 2/2;
           }
         }
         .plus-img {

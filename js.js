@@ -468,5 +468,17 @@ document.addEventListener("DOMContentLoaded", function () {
   painNumbers.forEach((num, index) => {
     num.src = painNumbers_URL[index];
   });
+
+
+
+  const h1 = document.querySelector("h1")
+
+  if (h1.offsetWidth === (window.innerWidth - 20)) {
+    h1.style.fontSize = "22px"
+    console.log(h1.offsetWidth, h1.offsetHeight);
+
+  }
+  
+
 });
 
