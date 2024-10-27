@@ -1548,7 +1548,7 @@ video {
 
     @include tablet() {
       padding-left: 18px;
-      font-size: 14px;
+      font-size: 16px;
     }
   }
 
@@ -1568,6 +1568,7 @@ video {
     @include mobile() {
       flex-direction: column;
       align-items: flex-start;
+      font-size: 16px;
     }
   }
 
@@ -1578,11 +1579,16 @@ video {
     &.active {
       transform: rotateX(180deg);
     }
+    @include mobile() {
+      position: absolute;
+      right: 16px;
+      bottom: 16px;
+    }
   }
 
   .glow-on-hover {
     all: unset;
-    &::before {
+    &::before, &::after {
       all: unset;
     }
     width: 90%;
@@ -1606,6 +1612,7 @@ video {
       gap: 20px;
       cursor: pointer;
       padding: 24px;
+      position: relative;
 
       &--bitrix-text {
         font-size: 30px !important;
@@ -1619,6 +1626,7 @@ video {
       }
 
       @include mobile() {
+        grid-template-columns: 1fr;
         gap: 20px;
         padding: 16px;
       }
@@ -1657,6 +1665,10 @@ video {
         @include tablet() {
           font-size: 16px;
         }
+
+        @include mobile-min() {
+          font-size: 14px;
+        }
       }
     }
 
@@ -1664,13 +1676,13 @@ video {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0 48px 24px;
+      padding: 0 24px 24px 48px;
       p {
         font-size: 20px;
         font-weight: 900;
         line-height: 28px;
         @include tablet() {
-          font-size: 18px;
+          font-size: 16px;
         }
       }
 
@@ -1737,7 +1749,8 @@ video {
     }
 
     @include mobile() {
-      padding: 0 0 20px 32px;
+      font-size: 14px;
+      padding: 0 0 20px 24px;
     }
   }
 }
