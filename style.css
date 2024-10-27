@@ -1499,7 +1499,7 @@ video {
   .pain h4 {
     flex-direction: column;
     align-items: flex-start;
-    font-size: 13px;
+    font-size: 10px;
   }
 }
 .pain__arrow {
