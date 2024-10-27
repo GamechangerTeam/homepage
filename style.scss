@@ -1489,7 +1489,7 @@ video {
     @include tablet() {
       display: grid;
       grid-template: auto auto / 1fr auto;
-      gap: 10px 20px;
+      gap: 10px 5px;
       align-items: flex-end;
       .pain__block {
         grid-column-start: 2 span;
@@ -1516,7 +1516,7 @@ video {
     height: 75px;
     @include tablet() {
       grid-area: 1/2;
-      padding-right: 20px;
+      padding-right: 18px;
       width: auto;
       height: 30px;
       margin-right: auto;
@@ -1551,6 +1551,9 @@ video {
       padding-left: 18px;
       font-size: 16px;
     }
+    @include mobile() {
+      font-size: 14px;
+    }
   }
 
   h4 {
@@ -1569,7 +1572,7 @@ video {
     @include mobile() {
       flex-direction: column;
       align-items: flex-start;
-      font-size: 10px;
+      font-size: 12px;
     }
   }
 
