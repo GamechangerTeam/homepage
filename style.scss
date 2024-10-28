@@ -34,6 +34,7 @@
     @content;
   }
 }
+
 // #endregion
 
 // #region ЦВЕТА
@@ -190,7 +191,6 @@ $grayGradient: linear-gradient(
   color: white;
   font-size: 20px;
   padding: 12px 24px;
-  height: 60px;
   &:hover {
     background-color: white;
     color: black !important;
@@ -200,9 +200,9 @@ $grayGradient: linear-gradient(
     scale: 0.95;
   }
 
-  @include mobile() {
-    height: auto;
-    font-size: 16px;
+  @include laptop() {
+    font-size: 18px;
+    padding: 12px 24px;
   }
 
   svg {
@@ -220,10 +220,11 @@ $grayGradient: linear-gradient(
   gap: 10px;
   color: white;
   padding: 0 24px;
-  height: 60px;
   font-weight: 600;
   font-size: 20px;
   transition: 0.3s;
+  padding: 12px 24px;
+
   box-shadow: -12px -12px 20px rgba(4, 212, 4, 0.13),
     10px 10px 20px rgba(9, 90, 9, 0.49);
   svg {
@@ -236,8 +237,9 @@ $grayGradient: linear-gradient(
   &:hover {
     scale: 0.95;
   }
-  @include tablet() {
-    padding: 16px 24px;
+  @include laptop() {
+    font-size: 14px;
+    padding: 12px 24px;
   }
   @include mobile() {
     font-size: 16px;
@@ -502,8 +504,6 @@ a {
   text-decoration: none;
   color: white !important;
 }
-
-
 
 #allrecords ul {
   padding: 0;
@@ -1173,7 +1173,7 @@ video {
     height: 100vh;
   }
 
-  @include tablet() {
+  @include laptop() {
     height: auto;
   }
 
@@ -1186,6 +1186,10 @@ video {
     z-index: 1;
     padding: 50px 20px 50px;
 
+    @include laptop() {
+      padding: 100px 20px 50px;
+    }
+
     @include mobile() {
       padding: 50px 10px 0px;
     }
@@ -1195,7 +1199,7 @@ video {
       color: #d4d5d6;
       font-size: 42px;
       text-align: center;
-      @include tablet() {
+      @include laptop() {
         font-size: 32px;
       }
 
@@ -1205,18 +1209,36 @@ video {
       }
     }
     p {
-      font-size: 30px;
+      font-size: 28px;
       text-align: center;
       margin: 36px 0 70px;
       max-width: 750px;
       font-weight: 300;
       @include tablet() {
-        font-size: 24px;
+        font-size: 26px;
+      }
+
+      @media (max-width: 680px) {
+        font-size: 22px;
+      }
+
+      @media (max-width: 580px) {
+        font-size: 18px;
       }
 
       @include mobile() {
-        font-size: 14px;
+        font-size: 16px;
         margin: 25px 0;
+      }
+
+      @media (max-width: 420px) {
+        font-size: 14px;
+      }
+
+      @include mobile-min() {
+        &:nth-child(3) {
+          font-size: 12px;
+        }
       }
     }
   }
@@ -1233,6 +1255,10 @@ video {
     @include pc {
       margin-right: 0;
     }
+    @include laptop() {
+      width: 120px;
+    }
+
     @include tablet() {
       width: 100px;
     }
@@ -1253,8 +1279,13 @@ video {
     @include tablet() {
       font-size: 60px !important;
     }
+
+    @media (max-width: 560px) {
+      font-size: 54px !important;
+    }
+
     @include mobile() {
-      font-size: 42px !important;
+      font-size: 38px !important;
     }
 
     @include mobile-min() {
@@ -1270,11 +1301,6 @@ video {
     br {
       display: none;
     }
-    // @include tablet() {
-    //   display: flex;
-    //   flex-direction: column;
-    //   gap: 28px;
-    // }
     @include mobile() {
       flex-direction: column;
       align-self: flex-start;
@@ -1291,20 +1317,27 @@ video {
       flex-direction: column;
       width: fit-content;
       padding: 0 10px;
-  
-      // @include tablet() {
-      //   padding: 0;
-      //   flex-direction: row;
-      //   align-items: center;
-      //   gap: 10px;
-      // }
 
       span {
+        text-align: left;
+
+        @include tablet() {
+          text-align: center;
+        }
+
         &:first-child {
           font-size: 64px;
           font-weight: 600;
+          @include laptop() {
+            font-size: 48px;
+          }
+
           @include tablet() {
-            font-size: 32px;
+            font-size: 42px;
+          }
+
+          @media (max-width: 580px) {
+            font-size: 36px;
           }
         }
         &:last-child {
@@ -1312,9 +1345,6 @@ video {
           color: white;
           font-size: 1rem;
           font-weight: 400;
-        }
-        @include tablet() {
-          text-align: center;
         }
       }
     }
@@ -1369,8 +1399,6 @@ video {
     margin-top: 70px;
     width: 100%;
 
-    @include tablet() {
-    }
     @include mobile() {
       margin-top: 25px;
       gap: 19px;
@@ -1393,9 +1421,6 @@ video {
       img {
         width: 24px;
       }
-      @include tablet() {
-        // font-size: ;
-      }
       @include mobile() {
         padding: 12px !important;
         img {
@@ -1404,7 +1429,7 @@ video {
       }
 
       @include mobile-min() {
-        font-size: 10px !important;
+        font-size: 12px !important;
       }
     }
     button {
@@ -1415,8 +1440,6 @@ video {
     a {
       width: fit-content;
       @include greenBtn();
-      // font-size: 10px !important;
-      // width: fit-content;s
     }
   }
 
@@ -1439,7 +1462,7 @@ video {
     rotate: 15deg;
     filter: blur(3px);
     z-index: -1;
-    @include tablet() {
+    @include laptop() {
       max-width: 250px;
       right: 0;
       top: 200px;
@@ -1473,9 +1496,9 @@ video {
     gap: 50px;
     display: flex;
     flex-direction: column;
-    @include mobile() {
+
+    @include laptop() {
       margin-top: 50px;
-      gap: 50px;
     }
   }
 
@@ -1487,7 +1510,7 @@ video {
     .pain__block {
       grid-column-start: 2;
     }
-    @include tablet() {
+    @include laptop() {
       display: grid;
       grid-template: auto auto / 1fr auto;
       gap: 20px 5px;
@@ -1496,21 +1519,19 @@ video {
         grid-column-start: 2 span;
       }
     }
-    
 
     @include mobile() {
-
       gap: 10px 5px;
 
       .pain__number {
         height: 32px;
       }
     }
+
     &:first-child {
       .pain__number {
         width: 125px;
-        @include tablet() {
-          // margin: 0 auto;
+        @include laptop() {
           width: auto;
         }
       }
@@ -1519,12 +1540,15 @@ video {
 
   &__number {
     height: 75px;
-    @include tablet() {
+    @include laptop() {
       grid-area: 1/2;
       padding-right: 18px;
       width: auto;
-      height: 30px;
+      height: 50px;
       margin-right: auto;
+    }
+    @include tablet() {
+      height: 32px;
     }
   }
 
@@ -1532,7 +1556,6 @@ video {
     font-weight: 900 !important;
     @include mobile() {
       font-size: 24px !important;
-      line-height: 20px;
     }
   }
 
@@ -1541,10 +1564,14 @@ video {
     color: #808080;
     font-weight: 200;
     color: #f5f5f5;
+    @include laptop() {
+      font-size: 18px;
+      display: block;
+      margin-top: 5px;
+    }
     @include mobile() {
       margin-top: 10px;
       font-size: 10px;
-      display: block;
     }
   }
 
@@ -1552,9 +1579,12 @@ video {
     font-weight: 300;
     font-size: 24px;
 
-    @include tablet() {
+    @include laptop() {
       padding-left: 18px;
-      font-size: 16px;
+    }
+
+    @include tablet() {
+      font-size: 18px;
     }
     @include mobile() {
       font-size: 14px;
@@ -1574,9 +1604,27 @@ video {
       }
     }
 
-    @include mobile() {
+    @media (max-width: 860px) {
+      font-size: 20px;
+    }
+
+    @include tablet() {
+      font-size: 16px;
+      span {
+        font-size: 20px;
+      }
+    }
+
+    @media (max-width: 620px) {
       flex-direction: column;
       align-items: flex-start;
+    }
+
+    @media (max-width: 430px) {
+      font-size: 14px;
+    }
+
+    @media (max-width: 380px) {
       font-size: 12px;
     }
   }
@@ -1588,7 +1636,8 @@ video {
     &.active {
       transform: rotateX(180deg);
     }
-    @include mobile() {
+
+    @media (max-width: 620px) {
       position: absolute;
       right: 16px;
       bottom: 16px;
@@ -1596,13 +1645,13 @@ video {
   }
 
   .glow-on-hover {
-    all: unset;
-    &::before, &::after {
-      all: unset;
-    }
-    width: 90%;
-    @include tablet() {
+    @include laptop() {
       width: 100%;
+      all: unset;
+      &::before,
+      &::after {
+        all: unset;
+      }
     }
   }
 
@@ -1612,7 +1661,9 @@ video {
     position: relative;
     width: 100%;
     height: auto;
-    border: 1px solid #04d404;
+    @include laptop() {
+      border: 1px solid #04d404;
+    }
 
     &__header {
       display: grid;
@@ -1624,17 +1675,21 @@ video {
       position: relative;
 
       &--bitrix-text {
-        font-size: 30px !important;
+        font-size: 20px !important;
         @include pc() {
-          font-size: 20px !important;
+          font-size: 16px !important;
+        }
+
+        @include tablet() {
+          font-size: 14px !important;
         }
       }
 
-      @include laptop() {
-        gap: 30px;
+      @include tablet() {
+        gap: 12px;
       }
 
-      @include mobile() {
+      @media (max-width: 620px) {
         grid-template-columns: 1fr;
         gap: 20px;
         padding: 16px;
@@ -1675,8 +1730,8 @@ video {
           font-size: 16px;
         }
 
-        @include mobile-min() {
-          font-size: 14px;
+        @include mobile() {
+          font-size: 12px;
         }
       }
     }
@@ -1689,9 +1744,13 @@ video {
       p {
         font-size: 20px;
         font-weight: 900;
-        line-height: 28px;
         @include tablet() {
-          font-size: 16px;
+          font-size: 18px;
+          font-weight: 600;
+        }
+
+        @include mobile() {
+          font-size: 14px;
         }
       }
 
@@ -1699,11 +1758,12 @@ video {
         @include grayBtn();
         @include mobile() {
           margin-left: auto;
+          font-size: 14px !important;
+          padding: 8px 12px;
         }
       }
 
       @include mobile() {
-        flex-direction: column;
         gap: 20px;
         align-items: flex-start;
         padding: 0 16px 16px;
@@ -1717,12 +1777,13 @@ video {
     place-items: center;
 
     @include mobile() {
-      font-size: 16px !important;
+      font-size: 14px !important;
+      padding: 8px 12px;
     }
   }
 
   &__days {
-    padding: 5px 10px;
+    padding: 0 8px;
     position: relative;
     isolation: isolate;
     &::before {
@@ -1733,9 +1794,13 @@ video {
       transform: translate(-50%, -50%);
       background-color: #04d404;
       border-radius: 50%;
-      width: 30px;
-      height: 30px;
+      width: 24px;
+      height: 24px;
       z-index: -1;
+      @include tablet() {
+        width: 20px;
+        height: 20px;
+      }
     }
   }
 
@@ -1776,21 +1841,26 @@ video {
     gap: 5px;
     span {
       display: none;
-      // color: gray;
-      // font-size: 24px;
-      // @include mobile() {
-      //   font-size: 18px;
-      // }
     }
   }
 
   h3 {
     font-weight: 700;
     font-size: 24px;
+
+    @media (max-width: 860px) {
+      font-size: 20px;
+    }
+
     @include tablet() {
+      font-size: 16px;
+    }
+
+    @media (max-width: 430px) {
       font-size: 14px;
     }
-    @include mobile() {
+
+    @media (max-width: 380px) {
       font-size: 12px;
     }
   }
@@ -1826,13 +1896,14 @@ video {
     .item {
       width: 100%;
       position: relative;
-      border: 1px solid #04d404;
       border-radius: 20px;
+      @include glow-on-hover();
       @include pc() {
         height: auto;
       }
-      @include mobile-min() {
-        // max-width: 300px;
+
+      @include tablet() {
+        border: 1px solid #04d404;
       }
 
       &__wrapper {
@@ -1844,7 +1915,6 @@ video {
         position: relative;
 
         @media (min-width: 1200px) {
-          // position: absolute;
           top: 0;
           left: 0;
         }
@@ -1865,17 +1935,17 @@ video {
         grid-template-columns: 1fr auto 32px;
         cursor: pointer;
         align-items: center;
-        gap: 20px;
+        gap: 30px;
 
         @include pc() {
           height: auto;
         }
         @include tablet() {
-          gap: 30px;
+          gap: 12px;
           padding: 16px;
         }
 
-        @include mobile() {
+        @media (max-width: 620px) {
           grid-template: 1fr auto / 1fr 32px;
           gap: 10px 5px;
         }
@@ -1895,8 +1965,7 @@ video {
         &__text {
           width: fit-content;
 
-          @include mobile() {
-            // grid-area: 1/1/1/2;
+          @media (max-width: 620px) {
             grid-column-start: 2 span;
           }
         }
@@ -1910,12 +1979,7 @@ video {
             margin-left: 0;
           }
           @include tablet() {
-            font-size: 30px;
-          }
-          
-          @include mobile() {
-            font-size: 24px;
-            grid-area: 2/1;
+            font-size: 20px;
           }
         }
 
@@ -2041,9 +2105,6 @@ video {
           gap: 5px;
           padding-bottom: 24px;
           border-radius: 20px;
-          @include tablet() {
-            padding: 16px;
-          }
           @include mobile() {
             flex-direction: column;
           }
@@ -2060,16 +2121,28 @@ video {
               border-radius: 50%;
               top: 10px;
               left: -16px;
+              @include tablet() {
+                left: 0;
+              }
             }
 
             @include tablet() {
               font-size: 16px;
+              padding-left: 16px;
+            }
+
+            @include mobile() {
+              font-size: 12px;
             }
           }
         }
 
         .open_left_section {
           @include grayBtn();
+          @include mobile() {
+            font-size: 14px !important;
+            padding: 8px 12px !important;
+          }
         }
       }
 
@@ -2080,24 +2153,22 @@ video {
         margin-top: 10px;
 
         @include mobile() {
-          flex-direction: column;
-          gap: 20px;
-          align-items: flex-start;
-          justify-content: flex-start;
+          // flex-direction: column;
+          width: 100%;
+          justify-content: space-between;
+          align-items: center;
           button {
-            margin-left: auto;
             font-size: 16px !important;
           }
         }
       }
 
       &__days {
-        margin-top: 20px;
         font-size: 20px !important;
         font-weight: 700 !important;
-
+        padding-left: 0 !important;
         span {
-          padding: 5px 10px;
+          padding: 0 8px;
           position: relative;
           isolation: isolate;
           &::before {
@@ -2108,24 +2179,38 @@ video {
             transform: translate(-50%, -50%);
             background-color: #04d404;
             border-radius: 50%;
-            width: 30px;
-            height: 30px;
+            width: 24px;
+            height: 24px;
             z-index: -1;
+            @include mobile() {
+              width: 20px;
+              height: 20px;
+            }
           }
         }
         &::before {
           all: unset !important;
         }
+
+        @include tablet() {
+          font-size: 18px !important;
+        }
+        @include mobile() {
+          font-size: 14px !important;
+        }
       }
     }
 
     #licenses {
-      &::before,
-      &::after {
-        all: unset;
-      }
+      @include glow-blue();
 
-      border-color: #47ddff;
+      @include tablet() {
+        &::before,
+        &::after {
+          all: unset;
+        }
+        border: 1px solid #47ddff;
+      }
 
       .item__header {
         grid-template-columns: 48px 1fr auto 32px;
@@ -3923,15 +4008,4 @@ video {
       transform: rotate(360deg);
     }
   }
-}
-
-.wow {
-  position: fixed;
-  width: 1px;
-  height: 100vh;
-  background-color: red;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1000;
 }
