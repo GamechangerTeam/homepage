@@ -1283,6 +1283,12 @@ video {
 .hero__btns a img {
   width: 24px;
 }
+@media (max-width: 768px) {
+  .hero__btns button,
+  .hero__btns a {
+    font-size: 14px !important;
+  }
+}
 @media (max-width: 525px) {
   .hero__btns button,
   .hero__btns a {

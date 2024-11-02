@@ -1421,6 +1421,9 @@ video {
       img {
         width: 24px;
       }
+      @include tablet() {
+        font-size: 14px !important;
+      }
       @include mobile() {
         padding: 12px !important;
         img {
