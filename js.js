@@ -224,7 +224,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (item.id === "individual") return;
     let licensesBtn = e.target.closest(".change-licenses-tarif");
     // const icon = item.querySelector(".plus-icon");
-    const icon = item.querySelector(".pain__arrow");
+    // const icon = item.querySelector(".pain__arrow");
 
     if (licensesBtn) {
       document
@@ -240,16 +240,16 @@ document.addEventListener("DOMContentLoaded", function () {
       licensesWrapper.style.maxHeight = licensesWrapper.scrollHeight + "px";
       itemMain.style.maxHeight = itemMain.scrollHeight + "px";
     } else if (itemHeader) {
-      icon.classList.toggle("active");
+      // icon.classList.toggle("active");
       ready = false;
 
-      let content = item.querySelector(".item__header").nextElementSibling;
+      // let content = item.querySelector(".item__header").nextElementSibling;
 
-      if (content.style.maxHeight) {
-        content.style.maxHeight = null;
-      } else {
-        content.style.maxHeight = content.scrollHeight + "px";
-      }
+      // if (content.style.maxHeight) {
+      //   content.style.maxHeight = null;
+      // } else {
+      //   content.style.maxHeight = content.scrollHeight + "px";
+      // }
 
       // icon.classList.toggle("active");
       // ready = false;
@@ -277,19 +277,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const painBlockCard = document.querySelectorAll(".pain__card__header");
 
-  painBlockCard.forEach((header) => {
-    header.addEventListener("click", () => {
-      const body = header.nextElementSibling;
-      const arrow = header.querySelector(".pain__arrow");
-      if (body.style.maxHeight) {
-        body.style.maxHeight = null;
-        arrow.classList.remove("active");
-      } else {
-        body.style.maxHeight = body.scrollHeight + "px";
-        arrow.classList.add("active");
-      }
-    });
-  });
+  // painBlockCard.forEach((header) => {
+  //   header.addEventListener("click", () => {
+  //     const body = header.nextElementSibling;
+  //     const arrow = header.querySelector(".pain__arrow");
+  //     if (body.style.maxHeight) {
+  //       body.style.maxHeight = null;
+  //       arrow.classList.remove("active");
+  //     } else {
+  //       body.style.maxHeight = body.scrollHeight + "px";
+  //       arrow.classList.add("active");
+  //     }
+  //   });
+  // });
 
   const loadImages = (section) => {
     const images = section.querySelectorAll("img[data-src]");
@@ -350,20 +350,20 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // ОТКРЫТИЕ КАРТОЧЕК В FAQ
-  faq_list.addEventListener("click", (e) => {
-    const card = e.target.closest(".faq__card");
-    if (card) {
-      const main = card.querySelector(".faq__main");
-      const icon = card.querySelector(".plus-icon");
-      if (main.style.maxHeight) {
-        main.style.maxHeight = null;
-        icon.classList.toggle("active");
-      } else {
-        main.style.maxHeight = main.scrollHeight + "px";
-        icon.classList.toggle("active");
-      }
-    }
-  });
+  // faq_list.addEventListener("click", (e) => {
+  //   const card = e.target.closest(".faq__card");
+  //   if (card) {
+  //     const main = card.querySelector(".faq__main");
+  //     const icon = card.querySelector(".plus-icon");
+  //     if (main.style.maxHeight) {
+  //       main.style.maxHeight = null;
+  //       icon.classList.toggle("active");
+  //     } else {
+  //       main.style.maxHeight = main.scrollHeight + "px";
+  //       icon.classList.toggle("active");
+  //     }
+  //   }
+  // });
 
   // const mainSlider = new fullpage("#main", {
   //   scrollOverflow: true,

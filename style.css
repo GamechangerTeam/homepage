@@ -1578,6 +1578,7 @@ video {
   }
 }
 .pain__arrow {
+  display: none;
   width: 32px;
   transition: 0.5s;
   align-self: flex-end;
@@ -1615,7 +1616,7 @@ video {
 }
 .pain__card__header {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr;
   align-items: center;
   gap: 20px;
   cursor: pointer;
@@ -1648,7 +1649,6 @@ video {
   }
 }
 .pain__card__body {
-  max-height: 0;
   transition: 0.3s;
 }
 .pain__card__text-wrapper {
@@ -1972,7 +1972,7 @@ video {
 .tarifs-block ul .item__header {
   padding: 24px;
   display: grid;
-  grid-template-columns: 1fr auto 32px;
+  grid-template-columns: 1fr auto;
   cursor: pointer;
   align-items: center;
   gap: 30px;
@@ -1990,7 +1990,7 @@ video {
 }
 @media (max-width: 620px) {
   .tarifs-block ul .item__header {
-    grid-template: 1fr auto/1fr 32px;
+    grid-template: 1fr auto/1fr auto;
     gap: 10px 5px;
   }
 }
@@ -2099,7 +2099,7 @@ video {
   }
 }
 .tarifs-block ul .item__header .pain__arrow {
-  display: block !important;
+  display: none !important;
   position: static !important;
 }
 @media (max-width: 525px) {
@@ -2131,7 +2131,6 @@ video {
   }
 }
 .tarifs-block ul .item__main {
-  max-height: 0;
   height: 100%;
   transition: 0.3s;
   padding: 0 24px 0 48px;
@@ -2483,6 +2482,7 @@ video {
   }
 }
 .tarifs-block ul #individual .pain__arrow {
+  display: none !important;
   rotate: -90deg;
 }
 .tarifs-block__background {
@@ -4378,7 +4378,6 @@ video {
 .faq__main {
   transition: 0.5s;
   height: 100%;
-  max-height: 0;
   padding: 0 24px;
 }
 @media (max-width: 768px) {

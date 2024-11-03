@@ -1633,6 +1633,7 @@ video {
   }
 
   &__arrow {
+    display: none;
     width: 32px;
     transition: 0.5s;
     align-self: flex-end;
@@ -1670,7 +1671,7 @@ video {
 
     &__header {
       display: grid;
-      grid-template-columns: 1fr auto;
+      grid-template-columns: 1fr ;
       align-items: center;
       gap: 20px;
       cursor: pointer;
@@ -1700,7 +1701,7 @@ video {
     }
 
     &__body {
-      max-height: 0;
+      // max-height: 0;
       transition: 0.3s;
     }
 
@@ -1935,7 +1936,7 @@ video {
       &__header {
         padding: 24px;
         display: grid;
-        grid-template-columns: 1fr auto 32px;
+        grid-template-columns: 1fr auto;
         cursor: pointer;
         align-items: center;
         gap: 30px;
@@ -1949,7 +1950,7 @@ video {
         }
 
         @media (max-width: 620px) {
-          grid-template: 1fr auto / 1fr 32px;
+          grid-template: 1fr auto / 1fr auto;
           gap: 10px 5px;
         }
 
@@ -2051,7 +2052,7 @@ video {
         }
 
         .pain__arrow {
-          display: block !important;
+          display: none !important;
           position: static !important;
           @include mobile() {
             grid-area: 2/2;
@@ -2081,7 +2082,7 @@ video {
       }
 
       &__main {
-        max-height: 0;
+        // max-height: 0;
         height: 100%;
         transition: 0.3s;
         padding: 0 24px 0 48px;
@@ -2383,6 +2384,7 @@ video {
         margin: 0 auto;
       }
       .pain__arrow {
+        display: none !important;
         rotate: -90deg;
       }
     }
@@ -3890,7 +3892,7 @@ video {
   &__main {
     transition: 0.5s;
     height: 100%;
-    max-height: 0;
+    // max-height: 0;
     padding: 0 24px;
     @include tablet() {
       padding: 0 16px;
